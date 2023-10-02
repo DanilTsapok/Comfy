@@ -1,0 +1,95 @@
+@import "../../colors.scss";
+.second-header{
+    width: 100%;
+    height: 56px;
+    background: $header-bottom-bg;
+    .second-header-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .second-header-wrapper{
+            width: 72%;
+            height: 100%;
+            display: flex;
+          
+        
+            
+        }
+    }
+    .second-header-catalog{
+        min-width: 25%;
+        height: 100%;
+        background:#379424 ;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .catalog-wrapper{
+            display: flex;
+            align-items: center;
+        }
+        p{
+            font-size: 15px;
+            font-weight: 500;
+            color: $color-pearl-white;
+        }
+        img{
+            width: 20px;
+            height: 20px;
+            margin: 10px 10px 10px 20px;
+        }
+        
+    }
+    .second-header-search{
+        
+
+        input{
+            width: 70%;
+            outline: none;
+            border: none;
+            margin: 8px 15px 0 30px;
+            padding: 10px 33px 10px 12px;
+            border-radius: 5px;
+        }
+        img{
+            width: 20px;
+            height: 20px;
+           
+        }
+    }
+    .second-header-login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a{
+            color: $color-white;
+            text-decoration: none;
+            background-color: $color-dark-green;
+            padding: 8px 10px;
+            border-radius:0.4rem ;
+        }
+    }
+    .second-header-like{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 21px;
+            height: 18px;
+        }    
+    }
+    .second-header-basket{
+        width: 170px;
+        height: 100%;
+        padding: 20px;
+        background-color: $color-dark-green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p{
+            margin: 10px;
+            color: $color-white;
+        }
+    }
+}
