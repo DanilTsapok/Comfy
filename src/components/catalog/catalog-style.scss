@@ -10,24 +10,37 @@
         justify-content: start;
         align-items: center;
         .catalog-wrapper{
-            width: 100%;
+            width: 25%;
             padding: 8px;
+            background-color: #fff;
         }
     }
     .catalog-items{
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: start;
         flex-wrap: wrap;
+     
+        margin: 8px 8px 0;
         a{
             display: flex;
             align-items: center;
             justify-self: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             color: black;
-      
+            font-weight: 200;
             text-decoration: none;  
-            font-size: 14px; 
+            font-size: 13px; 
+        }
+       
+        p{
+            flex-wrap: wrap;
+            margin: 0px 0px 0px 15px;
+            &:hover{
+                
+                color: $color-green
+            }
         }
     }
     .catalog-icon{

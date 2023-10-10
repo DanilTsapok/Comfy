@@ -12,7 +12,7 @@ const Catalog = () => {
             <div className="catalog-items" key={index}>
               <a href="#">
                 <img src={element.icon} className="catalog-icon" alt="" />
-                {element.item}
+                <p>{element.item}</p>
               </a>
             </div>
           ))}

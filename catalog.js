@@ -1,22 +1,22 @@
 const catalog = [
   {
-    icon: "./src/assets/icon.png",
+    icon: "./src/assets/apple-pay_5.svg",
     item: "Новинки Apple",
   },
   {
-    icon: "./src/assets/icon.png",
+    icon: "./src/assets/smartphone_3.svg",
     item: "Смартфони та телефони ",
   },
   {
-    icon: "./src/assets/icon.png",
+    icon: "./src/assets/laptop_3.svg",
     item: "Ноутбуки планшети та комп'ютерна техніка",
   },
   {
-    icon: "./src/assets/icon.png",
+    icon: "./src/assets/",
     item: "Техніка для кухні",
   },
   {
-    icon: "./src/assets/icon.png",
+    icon: "./src/assets//washing_machine_1.svg",
     item: "Техніка для дому",
   },
   {
