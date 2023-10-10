@@ -15,14 +15,15 @@ function App() {
       <HeaderBanner />
       <Header />
       <Secondheader num={num} />
-      <Card
+
+      {/* <Card
         fun2={() => {
           setNum(num + 1);
         }}
         fun3={() => {
           setNum(num - 1);
         }}
-      />
+      /> */}
     </>
   );
 }

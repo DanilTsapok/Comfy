@@ -9,58 +9,88 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: nowrap;
         .second-header-wrapper{
             width: 72%;
             height: 100%;
             display: flex;
-          
-        
-            
+            justify-content: space-between;
         }
     }
     .second-header-catalog{
-        min-width: 25%;
+        width: 25%;
         height: 100%;
         background:#379424 ;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        .catalog-wrapper{
-            display: flex;
+        flex-wrap: nowrap;
+        .catalog{
+            width: 100%;
+            display: flex;          
+            justify-content: space-between;
             align-items: center;
+           .catalog-header{
+                width: 90%;
+                display: flex;
+                align-items: center;
+           }
+           .catalog-header-icon{
+                width: 10%;
+
+            display: flex;
+                align-items: center;
+           }
         }
-        p{
+        p{  
+
             font-size: 15px;
             font-weight: 500;
             color: $color-pearl-white;
         }
-        img{
+        .first-icon{
             width: 20px;
             height: 20px;
             margin: 10px 10px 10px 20px;
         }
+        .second-icon{
+            width: 20px;
+            height: 20px;
+        }
         
     }
-    .second-header-search{
-        
 
+
+
+
+    .second-header-items{
+        width: 20%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .second-header-search{
+           width: 60%;
+            position: relative;
+            padding: 8px 15px 0 30px;
+           
         input{
-            width: 70%;
+            width: 100%;
             outline: none;
             border: none;
-            margin: 8px 15px 0 30px;
             padding: 10px 33px 10px 12px;
             border-radius: 5px;
         }
         img{
+            position: absolute;
+            top:calc(50% - 10px);
+            right: calc(10% - 50px);
             width: 20px;
             height: 20px;
-           
+            
         }
     }
+  
     .second-header-login{
         display: flex;
-        justify-content: center;
         align-items: center;
         a{
             color: $color-white;
@@ -71,6 +101,7 @@
         }
     }
     .second-header-like{
+  
         display: flex;
         justify-content: center;
         align-items: center;
@@ -80,7 +111,7 @@
         }    
     }
     .second-header-basket{
-        width: 170px;
+     
         height: 100%;
         padding: 20px;
         background-color: $color-dark-green;
@@ -88,7 +119,6 @@
         justify-content: center;
         align-items: center;
         p{
-            margin: 10px;
             color: $color-white;
         }
     }

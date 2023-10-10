@@ -6,6 +6,7 @@ import arrow from "../../assets/icons8-expand-arrow-30.png";
 import loop from "../../assets/icons8-search-48.png";
 import heart from "../../assets/icons8-heart-24.png";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+
 export default function Secondheader({ num }) {
   return (
     <>
@@ -13,26 +14,33 @@ export default function Secondheader({ num }) {
         <div className="second-header-container">
           <div className="second-header-wrapper">
             <div className="second-header-catalog">
-              <div className="catalog-wrapper">
-                <img src={blockchain} alt="" />
-                <p>Каталог товарів</p>
+              <div className="catalog">
+                <div className="catalog-header">
+                  <img src={blockchain} alt="" className="first-icon" />
+                  <p>Каталог товарів</p>
+                </div>
+                <div className="catalog-header-icon">
+                  <img src={arrow} alt="" className="second-icon" />
+                </div>
               </div>
-              <img src={arrow} alt="" />
             </div>
             <div className="second-header-search">
               <input placeholder="Пошук товарів" />
               <img src={loop} alt="" />
             </div>
-            <div className="second-header-login">
-              <a href="#">Увійти</a>
-            </div>
-            <div className="btn-controls"></div>
-            <div className="second-header-like">
-              <img src={heart} alt="" />
-            </div>
-            <div className="second-header-basket">
-              <ShoppingCartOutlined style={{ fontSize: 24, color: "white" }} />
-              <p>Кошик {num}</p>
+            <div className="second-header-items">
+              <div className="second-header-login">
+                <a href="#">Увійти</a>
+              </div>
+              <div className="second-header-like">
+                <img src={heart} alt="" />
+              </div>
+              <div className="second-header-basket">
+                <ShoppingCartOutlined
+                  style={{ fontSize: 24, color: "white" }}
+                />
+                <p>Кошик {num}</p>
+              </div>
             </div>
           </div>
         </div>
