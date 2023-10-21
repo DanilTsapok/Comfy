@@ -59,6 +59,7 @@ export default function Header() {
                   />
                 </a>
               </div>
+              <div className="header-delimiter"></div>
               <div className="header-change-lang">
                 <a href="">УКР</a>
                 <a href="">РУС</a>
