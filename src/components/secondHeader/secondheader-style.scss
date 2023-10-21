@@ -3,6 +3,7 @@
     width: 100%;
     height: 56px;
     background: $header-bottom-bg;
+
     .second-header-container{
         width: 100%;
         height: 100%;
@@ -11,6 +12,7 @@
         align-items: center;
         flex-wrap: nowrap;
         .second-header-wrapper{
+            margin: 0 auto;
             width: 72%;
             height: 100%;
             display: flex;

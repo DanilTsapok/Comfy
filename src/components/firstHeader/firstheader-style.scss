@@ -2,12 +2,16 @@
 header{
     width: 100%;
     height: 70px;
+  
+    margin: 0 auto;
+    
     background: $background-header;
     .header-container{
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        max-width: 144.4rem;
+       
         height: 100%;
         .header-wrapper{
             width:72%;

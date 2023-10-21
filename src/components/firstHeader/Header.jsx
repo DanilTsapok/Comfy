@@ -1,8 +1,8 @@
 import React from "react";
 import "./firstheader-style.scss";
 import "../../colors.scss";
-import logo from "../../assets/logo_main.svg";
-import phone from "../../assets/phone_icon_136322.svg";
+import logo from "../../assets/catalog-icons/logo_main.svg";
+import phone from "../../assets/catalog-icons/phone_icon_136322.svg";
 import { DownOutlined } from "@ant-design/icons";
 export default function Header() {
   return (

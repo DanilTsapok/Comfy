@@ -7,31 +7,42 @@
     .catalog-container{
         width: 72%;
         display: flex;
-        justify-content: start;
         align-items: center;
         .catalog-wrapper{
-            width: 25%;
+            width: 346px;
             padding: 8px;
             background-color: #fff;
         }
+        .catalog-categories-items{
+           background-color: #fff;
+           width: 0;
+           height: 100%;
+          p{
+            visibility: hidden;
+          }
+        }
+        
     }
     .catalog-items{
-        width: 100%;
+        
         display: flex;
         align-items: center;
-        justify-content: start;
         flex-wrap: wrap;
-     
         margin: 8px 8px 0;
         a{
+            width: 100%;
             display: flex;
             align-items: center;
-            justify-self: center;
+            justify-content: space-between;
             flex-wrap: nowrap;
             color: black;
             font-weight: 200;
             text-decoration: none;  
             font-size: 13px; 
+        }
+        .link{
+            display: flex;
+            align-items: center;
         }
        
         p{
@@ -47,4 +58,34 @@
        width: 20px;
        height: 20px; 
     }
+}
+.anim{
+    animation: anim .5s linear forwards;
+}
+@keyframes anim {
+    0%{
+        width: 0;
+        visibility: hidden;
+    }
+    100%{
+        visibility: visible;
+        width: calc(100% - 346px);
+    }
+   
+}
+.anim1{
+    animation: anim1 .5s linear forwards;
+}
+@keyframes anim1 {
+    0%{
+        width: 0;
+        visibility: hidden;
+        transform: translateX(-20px);
+    }
+    100%{
+        visibility: visible;
+        width: calc(100% - 346px);
+        transform: translateX(0);
+    }
+    
 }
