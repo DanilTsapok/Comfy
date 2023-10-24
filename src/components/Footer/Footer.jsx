@@ -136,10 +136,18 @@ const Footer = () => {
                 <div className="footer-bottom-card-masterCard"></div>
               </div>
               <div className="social-connection">
-                <img src={facebook} alt="" />
-                <img src={youtube} alt="" />
-                <img src={instagram} alt="" />
-                <img src={telegram} alt="" />
+                <a href="https://www.facebook.com">
+                  <img src={facebook} alt="" />
+                </a>
+                <a href="https://www.youtube.com/">
+                  <img src={youtube} alt="" />
+                </a>
+                <a href="https://www.instagram.com/">
+                  <img src={instagram} alt="" />
+                </a>
+                <a href="https://web.telegram.org/a/">
+                  <img src={telegram} alt="" />
+                </a>
               </div>
             </div>
           </div>

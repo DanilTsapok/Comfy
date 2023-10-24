@@ -8,8 +8,10 @@
         width: 72%;
         display: flex;
         align-items: center;
+        margin-bottom: 20px;
         .catalog-wrapper{
             width: 346px;
+            height: 602px;
             padding: 8px;
             background-color: #fff;
         }
@@ -17,6 +19,7 @@
            background-color: #fff;
            width: 0;
            height: 100%;
+         
           p{
             visibility: hidden;
           }
@@ -24,11 +27,11 @@
         
     }
     .catalog-items{
-        
+    
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        margin: 8px 8px 0;
+        margin: 13px 8px 0;
         a{
             width: 100%;
             display: flex;
@@ -38,7 +41,7 @@
             color: black;
             font-weight: 200;
             text-decoration: none;  
-            font-size: 13px; 
+            font-size: 14px; 
         }
         .link{
             display: flex;
@@ -69,7 +72,8 @@
     }
     100%{
         visibility: visible;
-        width: calc(100% - 346px);
+      
+        width: 100%;
     }
    
 }
@@ -89,3 +93,73 @@
     }
     
 }
+.catalog-right-side{
+    width: calc(100% - 346px);
+    height: 100%;
+    background-color: transparent;
+    padding: 5px;
+   .catalog-right-side-items{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        a{
+            width: 100%;
+            text-decoration: none;
+            color: black;
+        }
+       
+        .right-side-item{
+            width: 100%;
+            padding: 8px;
+            background-color: #fff;
+            height: 64px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            &:hover{
+                background-color:$color-gray ;
+            }
+        }
+        a:nth-child(2){
+            margin-left: 8px;
+        }
+        a:nth-child(3){
+            margin-left: 8px;
+        }
+        .item-text{
+            margin: 0 0 0 16px;
+        }
+   }
+   .catalog-right-side-slider{
+        width: 100%;
+        height: calc(100% - 147px);
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        
+   }
+   .slider-slide-wrapper{
+        width: 100%;
+        display: block;
+        overflow: hidden;
+   }
+    .slider-slide-wrap{
+        width: 23400px;
+        display: flex;
+        height: 100%;
+    }
+   .slider-slide{
+        width: 244px;
+        height: 100%;
+        border-radius: 10px;
+        background-color: #fff;
+        margin: 0 6px;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+   }
+}
+

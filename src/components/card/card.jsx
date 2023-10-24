@@ -19,30 +19,40 @@ const Card = ({ fun2, fun3 }) => {
 
   return (
     <div className="cards-container">
-      <div className="cards-header"></div>
+      <div className="cards-header">
+        <h1>Кращ</h1>
+        <a href="">Дивитися всі</a>
+      </div>
       <div className="cards-body">
         <div className="cards">
           {cardsData.map((element, index) => (
-            <div className="card" key={index}>
-              <div className="img">
-                <img src={element.img} alt="" />
-              </div>
-              <div className="title">
-                <Link to="/product">{element.name}</Link>
-              </div>
-              <div className="price">{element.price}</div>
-              <div className="card-details">{element.details}</div>
-              <div className="numOfComments">{element.numOfComments}</div>
+            <Link to="/product">
+              <div className="card" key={index}>
+                <div className="card-img">
+                  <img src={element.img} alt="" />
+                </div>
+                <div className="card-title">
+                  <Link to="/product">{element.name}</Link>
+                </div>
+                <div className="card-info-main">
+                  <div className="info-main-score"></div>
+                  <div className="info-main-numOfComments">
+                    {element.numOfComments}
+                  </div>
+                  <div className="info-main-backs-credit"></div>
+                </div>
+                <div className="card-details">{element.details}</div>
 
-              <div className="btn-buy">
-                <button
-                  onClick={() => handleButtonClick(index)}
-                  className={element.checked ? "checked" : "default"}
-                >
-                  {element.checked ? "Delete" : "Buy"}
-                </button>
+                <div className="card-btn-buy">
+                  <button
+                    onClick={() => handleButtonClick(index)}
+                    className={element.checked ? "checked" : "default"}
+                  >
+                    {element.checked ? "Delete" : "Buy"}
+                  </button>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
