@@ -4,6 +4,7 @@ import "../../colors.scss";
 import logo from "../../assets/catalog-icons/logo_main.svg";
 import phone from "../../assets/catalog-icons/phone_icon_136322.svg";
 import { DownOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <>
@@ -12,9 +13,9 @@ export default function Header() {
           <div className="header-wrapper">
             <div className="header-left-side">
               <div className="header-logo">
-                <a href="#">
+                <Link to="/">
                   <img src={logo} alt="" />
-                </a>
+                </Link>
               </div>
               <div className="header-city-menu">
                 <a href="#">

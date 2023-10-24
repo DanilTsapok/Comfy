@@ -160,6 +160,46 @@
     font-weight: 500;
     margin-top: 8px;
     padding: 11px;
-    background-color: $color-dark-green;
+    background-color: $color-green;
     cursor: pointer;
+}
+.footer-bottom-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 60px;
+    .footer-bottom{
+        width: 72%;
+        padding: 8px 0px;
+        gap: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+     .footer-bottom-cards{
+        display: flex;
+        width: 50%;
+        div{
+            width: 96px;
+            height: 36px;
+            border: 1px solid $color-alt-gray;
+            border-radius: 10px;
+        }
+        .footer-bottom-card-visa{
+            background: 50%/50% no-repeat url(./../../assets/footer-icon/visa.svg) ;
+        }
+        .footer-bottom-card-masterCard{
+            margin-left: 16px;
+            background: 50%/50% no-repeat url(./../../assets/footer-icon/masterCard.svg);
+        }
+    }   
+    .social-connection{
+        display: flex;
+        img{
+           
+            margin-right: 20px;
+        }
+    }
+    }
 }

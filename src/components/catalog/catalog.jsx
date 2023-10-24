@@ -51,7 +51,9 @@ const Catalog = () => {
           {catalog.map((element, index) => {
             return (
               <div key={index}>
-                <p className={isHovered ? "anim1" : ""}>{element.titles}</p>
+                <p className={isHovered ? "anim1" : ""}>
+                  {element.categories.name}
+                </p>
               </div>
             );
           })}

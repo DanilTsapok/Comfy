@@ -7,21 +7,14 @@ import { useState } from "react";
 import Footer from "../../components/Footer/Footer";
 const Home = () => {
   const [num, setNum] = useState(0);
-
+  const fun2 = () => setNum(num - 1);
+  const fun3 = () => setNum(num - 1);
   return (
     <>
       <Header />
       <Secondheader num={num} />
       <Catalog />
-      <Card
-        fun2={() => {
-          setNum(num + 1);
-        }}
-        fun3={() => {
-          setNum(num - 1);
-        }}
-      />
-
+      <Card fun2={fun2} fun3={fun3} />
       <Footer />
     </>
   );
