@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import catalog from "../../../catalog";
 import "./catalog-style.scss";
 import "./../../colors.scss";
@@ -11,11 +11,17 @@ import img1 from "./../../assets/home-slider-img/w_320 (1).avif";
 import img2 from "./../../assets/home-slider-img/w_320 (2).avif";
 import img3 from "./../../assets/home-slider-img/w_320 (3).avif";
 import img4 from "./../../assets/home-slider-img/w_320.avif";
-
+import logo from "./../../assets/catalog-icons/logo.svg";
+import samsungLogo from "./../../assets/samsung-logo.png";
+import appleLogo from "./../../assets/Apple_logo-main.png";
+import xiaomiLogo from "./../../assets/1200x628.png";
 const Catalog = () => {
   const [isHovered, setHover] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const imgArray = [img1, img2, img3, img4];
+  const brandArray = [logo, samsungLogo, appleLogo, xiaomiLogo];
+  console.log(currentIndex);
 
-  console.log(catalog);
   return (
     <div className="catalog">
       <div className="catalog-container">
@@ -69,7 +75,11 @@ const Catalog = () => {
             );
           })}
         </div>
-        <div className="catalog-right-side">
+        <div
+          className={
+            isHovered ? "catalog-right-side active" : "catalog-right-side "
+          }
+        >
           <div className="catalog-right-side-items">
             <a href="">
               <div className="right-side-item">
@@ -105,30 +115,35 @@ const Catalog = () => {
           <div className="catalog-right-side-slider">
             <div className="slider-slide-wrapper">
               <div className="slider-slide-wrap">
-                <div className="slider-slide">
-                  <img src={img1} alt="" />
-                </div>
-                <div className="slider-slide">
-                  <img src={img2} alt="" />
-                </div>
-                <div className="slider-slide">
-                  <img src={img3} alt="" />
-                </div>
-                <div className="slider-slide">
-                  <img src={img4} alt="" />
-                </div>
-                <div className="slider-slide">
-                  <img src={img4} alt="" />
-                </div>
-                <div className="slider-slide">
-                  <img src={img4} alt="" />
-                </div>
-                <div className="slider-slide">
-                  <img src={img4} alt="" />
-                </div>
-                <div className="slider-slide">
-                  <img src={img4} alt="" />
-                </div>
+                {imgArray.map((slide, index) => (
+                  <div className="slider-slide" key={index}>
+                    <img src={slide} alt="" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="catalog-right-side-brands">
+            <div className="right-side-brand">
+              <img src={samsungLogo} alt="" />
+            </div>
+            <div className="header-delimiter"></div>
+            <div className="right-side-brand">
+              <img src={appleLogo} alt="" />
+            </div>
+            <div className="header-delimiter"></div>
+            <div className="right-side-brand">
+              <img src={xiaomiLogo} alt="" />
+            </div>
+            <div className="header-delimiter"></div>
+            <div className="right-side-brand">
+              <img src={logo} alt="" />
+            </div>
+            <div className="header-delimiter"></div>
+            <div className="right-side-brand">
+              <div className="brand-all">
+                <p>Всі бренди</p>
+                <p>+</p>
               </div>
             </div>
           </div>

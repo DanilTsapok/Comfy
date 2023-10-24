@@ -19,7 +19,7 @@ const data = [
     numOfComments: 886,
   },
   {
-    name: "Прально-сушильна машина Whirlpool FFWDB 864349 BV UA",
+    name: "Гриль-барбекю електричний Delonghi CGH1130DP",
     price: 123123 + "₴",
     checked: false,
     img: "./src/assets/w_600.avif",
