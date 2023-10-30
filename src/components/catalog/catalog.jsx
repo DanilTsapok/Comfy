@@ -1,26 +1,24 @@
-import React, { useEffect } from "react";
-import catalog from "../../../catalog";
+import React from "react";
+import catalog from "../../data/catalog";
 import "./catalog-style.scss";
 import "./../../colors.scss";
 import { useState } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import outlet from "./../../assets/catalog-icons/outlet.svg";
 import krash from "./../../assets/catalog-icons/krash.svg";
-import toyicon from "./../../assets/toyicon.png";
+import toyicon from "./../../assets/png/toyicon.png";
 import img1 from "./../../assets/home-slider-img/w_320 (1).avif";
 import img2 from "./../../assets/home-slider-img/w_320 (2).avif";
 import img3 from "./../../assets/home-slider-img/w_320 (3).avif";
 import img4 from "./../../assets/home-slider-img/w_320.avif";
 import logo from "./../../assets/catalog-icons/logo.svg";
-import samsungLogo from "./../../assets/samsung-logo.png";
-import appleLogo from "./../../assets/Apple_logo-main.png";
-import xiaomiLogo from "./../../assets/1200x628.png";
+import samsungLogo from "./../../assets/png/samsung-logo.png";
+import appleLogo from "./../../assets/png/Apple_logo-main.png";
+import xiaomiLogo from "./../../assets/png/1200x628.png";
 const Catalog = () => {
   const [isHovered, setHover] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const imgArray = [img1, img2, img3, img4];
-  const brandArray = [logo, samsungLogo, appleLogo, xiaomiLogo];
-  console.log(currentIndex);
 
   return (
     <div className="catalog">

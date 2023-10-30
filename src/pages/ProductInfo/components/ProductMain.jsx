@@ -1,8 +1,7 @@
 import React from "react";
 import "./productMain-styles.scss";
-const ProductMain = () => {
-  const num = 353;
-  const title = "Смартфон Apple iPhone 14 Pro Max 256Gb Purple";
+
+const ProductMain = ({ product }) => {
   return (
     <>
       <div className="nav-path"></div>
@@ -13,15 +12,15 @@ const ProductMain = () => {
           <a href="">Характеристики</a>
           <div className="nav-delimiter"></div>
           <a href="">
-            Відгуки<span>{num}</span>
+            Відгуки<span>{product.numOfComments}</span>
           </a>
           <div className="nav-delimiter"></div>
           <a href="">
-            Питання<span>{num}</span>
+            Питання<span>{product.question}</span>
           </a>
           <div className="nav-delimiter"></div>
           <a href="">
-            Відео<span>{num}</span>
+            Відео<span>{product.video}</span>
           </a>
           <div className="nav-delimiter"></div>
           <a href="">Аксесуари</a>
@@ -39,24 +38,24 @@ const ProductMain = () => {
           </section>
           <section className="product-preview-right-side">
             <div className="info-main">
-              <h1 className="title-of-product">{title}</h1>
+              <h1 className="title-of-product">{product.name}</h1>
               <div className="info-main-labels"></div>
               <div className="info-main-review">
                 <div className="rating-box"></div>
                 <div className="num-of-comments">
-                  <p>{num} відгука</p>
+                  <p> {product.numOfComments} відгука</p>
                 </div>
                 <div className="code-of-product">
-                  <p>Код:{num}</p>
+                  <p>Код:{product.id}</p>
                 </div>
               </div>
             </div>
             <div className="info-product-price">
               <div className="info-product-price-box">
                 <h2>
-                  {num}₴ <span>-5%</span>
+                  ₴ <span>-5%</span>
                 </h2>
-                <h1>{num}₴</h1>
+                <h1>₴</h1>
                 <a href="">Купити</a>
               </div>
               <div className="info-product-price-btns"></div>

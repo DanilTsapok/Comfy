@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import footerData from "../../../footerData";
+import React from "react";
+import footerData from "../../data/footerData";
 import "./footer-styles.scss";
 import QR from "./../../assets/catalog-icons/f_auto.svg";
 

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "../../colors.scss";
 import "./secondheader-style.scss";
-import blockchain from "../../assets/icons8-apps-48.png";
-import arrow from "../../assets/icons8-expand-arrow-30.png";
-import loop from "../../assets/icons8-search-48.png";
-import heart from "../../assets/icons8-heart-24.png";
+import blockchain from "../../assets/png/icons8-apps-48.png";
+import arrow from "../../assets/png/icons8-expand-arrow-30.png";
+import loop from "../../assets/png/icons8-search-48.png";
+import heart from "../../assets/png/icons8-heart-24.png";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import Catalog from "../catalog/catalog";
 
 export default function Secondheader({ num }) {
   return (
