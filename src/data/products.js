@@ -14,7 +14,7 @@ const data = [
     name: "Гриль-барбекю електричний Delonghi CGH1130DP",
     price: 123123,
     checked: false,
-    img: "./src/assets/png/w_600.avif",
+    img: "./src/assets/png/grill.avif",
     category: "",
     numOfComments: 886,
     question: 123,
