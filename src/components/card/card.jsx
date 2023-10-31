@@ -5,6 +5,8 @@ import crash from "../../assets/svg/krash.svg";
 import { Link } from "react-router-dom";
 import { MessageOutlined } from "@ant-design/icons";
 import commentIcon from "./../../assets/png/icons8-comments-48.png";
+import { LiaShoppingCartSolid } from "react-icons/lia";
+import { TbShoppingCartCheck } from "react-icons/tb";
 const Card = ({ fun2, fun3 }) => {
   const [cardsData, setCardsData] = React.useState(data);
 
@@ -54,7 +56,8 @@ const Card = ({ fun2, fun3 }) => {
                 <div className="info-main-banks-credit"></div>
               </div>
               <div className="card-box-price">
-                <div>
+                <div className="c-b-price">
+                  <p className="old-price">{element.oldPrice}₴</p>
                   <h2>
                     {element.price}
                     <span> ₴</span>
@@ -65,7 +68,11 @@ const Card = ({ fun2, fun3 }) => {
                     onClick={() => handleButtonClick(index)}
                     className={element.checked ? "checked" : "default"}
                   >
-                    {element.checked ? "Delete" : "🛒"}
+                    {element.checked ? (
+                      <TbShoppingCartCheck size={25} />
+                    ) : (
+                      <LiaShoppingCartSolid size={25} />
+                    )}
                   </button>
                 </div>
               </div>

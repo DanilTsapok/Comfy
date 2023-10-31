@@ -8,6 +8,7 @@ const data = [
     category: "Phones",
     numOfComments: 886,
     question: 123,
+    oldPrice: 123,
   },
   {
     id: 12432,
@@ -19,6 +20,7 @@ const data = [
     numOfComments: 886,
     question: 123,
     video: 411,
+    oldPrice: 123,
   },
   {
     id: 42344,
@@ -29,6 +31,7 @@ const data = [
     numOfComments: 886,
     question: 123,
     video: 123,
+    oldPrice: 123,
   },
   {
     id: 413123,
@@ -39,6 +42,7 @@ const data = [
     numOfComments: 886,
     question: 123,
     video: 12,
+    oldPrice: 123,
   },
   {
     id: 134121,
@@ -49,6 +53,7 @@ const data = [
     numOfComments: 886,
     question: 123,
     video: 53,
+    oldPrice: 123,
   },
 ];
 export default data;

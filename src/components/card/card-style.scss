@@ -119,6 +119,13 @@
                 font-size: 16px;
             }
         }
+        .c-b-price{
+
+            .old-price{
+                text-decoration-line: line-through;
+                color: $color-middle-gray;
+            }
+        }
     }
 }
 
@@ -127,9 +134,9 @@
     height: 50px;
     outline: none;
     border-radius: 10px;
-    border: 1px solid red;
-    background-color: transparent;
-    color: red;
+    border: 1px solid $color-middle-green ;
+    background-color: lightgreen;
+    color:$color-green ;
     transition: 0.3s all;
     cursor: pointer;
 

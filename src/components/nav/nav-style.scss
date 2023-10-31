@@ -1,0 +1,84 @@
+@import "../../colors.scss";
+.navigation{
+    position: sticky;
+    z-index: 999;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+    transition: .3s;
+    
+    .nav-items{
+        width: 72%;
+        display: flex;
+        height: 72px;
+        margin: 0 auto;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #fff;
+        position: relative;
+        overflow: hidden;
+        .nav-item{
+            position: relative;
+            &:before{
+                content: "";
+                position: absolute;
+                bottom: -6px;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background-color: $color-dark-green;
+              
+                opacity: 0;
+                transition: .3s;
+            }
+        }
+        .nav-item:not(.active):hover:before{
+            opacity: 1;
+            bottom: 0;
+        }
+        .nav-item:not(.active):hover{
+            background-color: #f1f1f1;
+        }
+        .nav-indicator{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            transition: .4s;
+            z-index: 1;
+            
+
+        }
+        a{
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-decoration: none;
+            font-size: 14px;
+            color: #808080;
+            text-transform: uppercase;
+            padding: 4px 0px;
+            font-weight: 400;
+            flex: auto;
+           
+            span{
+                margin-left: 5px;
+                color: #fff;
+                padding: 2px 6px;
+                background-color: $color-green;
+                border-radius: 5px;
+                font-size: 12px;
+            }
+        }
+        .nav-delimiter{
+            height: 1.6rem;
+            margin: auto 0;
+            border-right: 1px solid $header-delimiter;
+        }
+    }
+}

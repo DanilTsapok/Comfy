@@ -1,37 +1,14 @@
 import React from "react";
 import "./productMain-styles.scss";
-import commentIcon from "../../../assets/png/icons8-comments-48.png";
+import commentIcon from "./../../../../assets/png/icons8-comments-48.png";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import crash from "../../../assets/svg/krash.svg";
+import crash from "../../../../assets/svg/krash.svg";
+
+import Nav from "../../../../components/nav/Nav";
 const ProductMain = ({ product }) => {
   return (
     <>
-      <div className="nav-path"></div>
-      <div className="navigation">
-        <div className="nav-items">
-          <a href="">Все про товар</a>
-          <div className="nav-delimiter"></div>
-          <a href="">Характеристики</a>
-          <div className="nav-delimiter"></div>
-          <a href="">
-            Відгуки<span>{product.numOfComments}</span>
-          </a>
-          <div className="nav-delimiter"></div>
-          <a href="">
-            Питання<span>{product.question}</span>
-          </a>
-          <div className="nav-delimiter"></div>
-          <a href="">
-            Відео<span>{product.video}</span>
-          </a>
-          <div className="nav-delimiter"></div>
-          <a href="">Аксесуари</a>
-          <div className="nav-delimiter"></div>
-          <a href="">Сервіси</a>
-          <div className="nav-delimiter"></div>
-          <a href="">Наявність в магазинаx</a>
-        </div>
-      </div>
+      <Nav product={product} />
       <div className="product-preview-wrapper">
         <div className="product-preview">
           <section className="product-preview-left-side">
