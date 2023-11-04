@@ -5,6 +5,7 @@ import logo from "../../assets/catalog-icons/logo_main.svg";
 import phone from "../../assets/catalog-icons/phone_icon_136322.svg";
 import { DownOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <>

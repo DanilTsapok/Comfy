@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import data from "../../data/products";
 import "./card-style.scss";
 import crash from "../../assets/svg/krash.svg";
@@ -7,6 +7,8 @@ import { MessageOutlined } from "@ant-design/icons";
 import commentIcon from "./../../assets/png/icons8-comments-48.png";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { TbShoppingCartCheck } from "react-icons/tb";
+import { Box, Rating } from "@mui/material";
+import StarIcon from "@mui/icons-material/Star";
 const Card = ({ fun2, fun3 }) => {
   const [cardsData, setCardsData] = React.useState(data);
 
@@ -48,10 +50,35 @@ const Card = ({ fun2, fun3 }) => {
                 </Link>
               </div>
               <div className="card-info-main">
-                <div className="info-main-score"></div>
-                <div className="info-main-numOfComments">
-                  <img src={commentIcon} alt="" />
-                  <a href="">{element.numOfComments}</a>
+                <div className="card-info-main-rating">
+                  <div className="info-main-score">
+                    <Box
+                      sx={{
+                        width: 120,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Rating
+                        name="text-feedback"
+                        value={element.rating}
+                        readOnly
+                        precision={0.5}
+                        emptyIcon={
+                          <StarIcon
+                            style={{ opacity: 0.55 }}
+                            fontSize="inherit"
+                          />
+                        }
+                      />
+                    </Box>
+                  </div>
+                  <div className="info-main-numOfComments">
+                    <img src={commentIcon} alt="" />
+                    <Link to={`/comments/${element.id}`}>
+                      {element.numOfComments}
+                    </Link>
+                  </div>
                 </div>
                 <div className="info-main-banks-credit"></div>
               </div>
@@ -69,7 +96,7 @@ const Card = ({ fun2, fun3 }) => {
                     className={element.checked ? "checked" : "default"}
                   >
                     {element.checked ? (
-                      <TbShoppingCartCheck size={25} />
+                      <LiaShoppingCartSolid size={25} />
                     ) : (
                       <LiaShoppingCartSolid size={25} />
                     )}

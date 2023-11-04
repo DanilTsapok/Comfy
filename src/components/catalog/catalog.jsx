@@ -15,6 +15,7 @@ import logo from "./../../assets/catalog-icons/logo.svg";
 import samsungLogo from "./../../assets/png/samsung-logo.png";
 import appleLogo from "./../../assets/png/Apple_logo-main.png";
 import xiaomiLogo from "./../../assets/png/1200x628.png";
+import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 const Catalog = () => {
   const [isHovered, setHover] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,12 +39,11 @@ const Catalog = () => {
                   </div>
                   <div>
                     {element.list ? (
-                      <DownOutlined
+                      <ArrowForwardIosOutlinedIcon
                         style={{
-                          fontSize: "10px",
+                          fontSize: "13px",
                           marginLeft: 8,
                           marginRight: 3,
-                          transform: "rotate(-90deg)",
                         }}
                       />
                     ) : (

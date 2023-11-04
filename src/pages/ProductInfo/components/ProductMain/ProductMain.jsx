@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./productMain-styles.scss";
 import commentIcon from "./../../../../assets/png/icons8-comments-48.png";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import StarIcon from "@mui/icons-material/Star";
 import crash from "../../../../assets/svg/krash.svg";
-
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
 import Nav from "../../../../components/nav/Nav";
 const ProductMain = ({ product }) => {
   return (
@@ -47,11 +48,26 @@ const ProductMain = ({ product }) => {
               <div className="info-main-review">
                 <div className="info-main-rating">
                   <div className="rating-box">
-                    <AiFillStar fill="darkorange" />
-                    <AiFillStar fill="darkorange" />
-                    <AiFillStar fill="darkorange" />
-                    <AiFillStar fill="darkorange" />
-                    <AiFillStar fill="darkorange" />
+                    <Box
+                      sx={{
+                        width: 200,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Rating
+                        name="text-feedback"
+                        value={product.rating}
+                        readOnly
+                        precision={0.5}
+                        emptyIcon={
+                          <StarIcon
+                            style={{ opacity: 0.55 }}
+                            fontSize="inherit"
+                          />
+                        }
+                      />
+                    </Box>
                   </div>
                   <div className="num-of-comments">
                     <img src={commentIcon} alt="" />

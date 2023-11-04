@@ -6,8 +6,9 @@ import arrow from "../../assets/png/icons8-expand-arrow-30.png";
 import loop from "../../assets/png/icons8-search-48.png";
 import heart from "../../assets/png/icons8-heart-24.png";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { LiaShoppingCartSolid } from "react-icons/lia";
 
-export default function Secondheader({ num }) {
+export default function Secondheader({ setModalActive }) {
   return (
     <>
       <div className="second-header">
@@ -30,16 +31,16 @@ export default function Secondheader({ num }) {
             </div>
             <div className="second-header-items">
               <div className="second-header-login">
-                <a href="#">Увійти</a>
+                <a href="#" onClick={() => setModalActive(true)}>
+                  Увійти
+                </a>
               </div>
               <div className="second-header-like">
                 <img src={heart} alt="" />
               </div>
               <div className="second-header-basket">
-                <ShoppingCartOutlined
-                  style={{ fontSize: 24, color: "white" }}
-                />
-                <p>Кошик {num}</p>
+                <LiaShoppingCartSolid size={26} color="white" />
+                <p>Кошик </p>
               </div>
             </div>
           </div>

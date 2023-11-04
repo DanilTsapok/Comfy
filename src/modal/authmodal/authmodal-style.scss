@@ -1,0 +1,62 @@
+.authmodal{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;  
+    
+    transition: .5s;
+}
+.authmodal-body{
+    width: 620px ;
+    height: 530px ;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;   
+    transform: scale(0);
+    transition: .5s;
+    display: flex;
+}
+.authmodal-body-left-side{
+    
+    width: 41%;
+    height: 100%;
+    background-color: #43b02a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.authmodal-body-righ-side{
+    width: 100%;
+    position: relative;
+}
+
+.authactive{
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+    transform: scale(1);
+    transition: .5s;
+}
+.modalactive{
+    transform: scale(1);
+    transition: .5s;
+}
+.authmodal-close{
+    position: absolute;
+    right: 18px;
+    top: 18px;
+}
+.user-info{
+    width: 100%;
+    form{
+     
+    }
+}
