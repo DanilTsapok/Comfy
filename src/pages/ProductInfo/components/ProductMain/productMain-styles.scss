@@ -45,6 +45,7 @@
         overflow-y: auto;
         padding-top: 8px;
         img{
+            object-fit: contain;
             border: 1px solid lightgrey;
             padding: 2px;
             width: 56px;
@@ -60,6 +61,7 @@
         background-color: #fff;
         top: 0px;
         img{
+            object-fit: contain;
             width: calc(100% - 100px);
             height: calc(100% - 100px);
         }
