@@ -1,3 +1,4 @@
+@import "./../../colors.scss";
 .authmodal{
     height: 100vh;
     width: 100vw;
@@ -10,9 +11,9 @@
     align-items: center;
     pointer-events: none;
     opacity: 0;  
-    
     transition: .5s;
 }
+
 .authmodal-body{
     width: 620px ;
     height: 530px ;
@@ -22,6 +23,7 @@
     transform: scale(0);
     transition: .5s;
     display: flex;
+    
 }
 .authmodal-body-left-side{
     
@@ -33,9 +35,103 @@
     align-items: center;
     
 }
-.authmodal-body-righ-side{
-    width: 100%;
-    position: relative;
+.authmodal-body-right-side{
+    width: 69%;
+    height: 100%;
+
+    .authmodal-close{
+        display: flex;
+        justify-content: end;
+        margin: 18px;
+        padding: 6px;
+
+    }
+    .authmodal-title{
+        padding: 0px 40px 20px;
+        h1{
+            font-size: 18px;
+        }
+    }
+    .user-info{
+        width: 100%;
+        padding: 0px 40px;
+        form{
+
+            p{
+                font-size: 16px;
+                color: #616161;
+                margin: 0 0 8px;
+            }
+            .input-number{
+                width: 100%;
+                input{
+                    width: 100%;
+                    height: 40px;
+                    padding: 1px 12px;
+                    border: 1px solid $color-gray;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    margin-bottom: 20px;
+                    outline: none;
+                }
+            }
+            input[type="submit"]{
+                width: 100%;
+                height: 48px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                background-color: $color-green;
+                color: #fff;
+                cursor: pointer;
+            }
+            .about{
+                width: 100%;
+                margin: 20px 0px 20px 0px;
+                display: flex;
+                align-items: center;
+                span{
+                    padding: 10px ;
+                    font-size: 14px;
+                }
+            }
+            hr{
+                width: 100%;
+                border: 1px solid $color-gray;
+                height: 0px;
+            }
+            .google-account{
+               width: 100%;
+               height: 100%;
+               a{
+                display: block;
+                width: 100%;
+                border: 1px solid $color-gray;
+                padding: 7.2px;
+                border-radius: 5px;
+                align-items: center;
+                display: flex;
+                text-decoration: none;
+                .link-text{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    color: #616161;
+                   
+                }
+               }
+               .google-icon{
+                width: 26px;
+                height: 26px;
+               
+
+               }
+              
+            }
+        }
+    }
+
+
 }
 
 .authactive{
@@ -44,19 +140,11 @@
     pointer-events: all;
     transform: scale(1);
     transition: .5s;
+
+ 
 }
 .modalactive{
     transform: scale(1);
     transition: .5s;
 }
-.authmodal-close{
-    position: absolute;
-    right: 18px;
-    top: 18px;
-}
-.user-info{
-    width: 100%;
-    form{
-     
-    }
-}
+
