@@ -17,6 +17,7 @@ export default function MakeComments({
     text: "",
     advantages: "",
     disadvantages: "",
+    rating: 0,
   };
   const [value, setValue] = useState(0);
   const [commentData, setCommentData] = useConsoleState(commentState);
@@ -24,9 +25,12 @@ export default function MakeComments({
   const addComment = () => {
     const newComment = { ...commentData, rating: value };
     setComments([...comments, newComment]);
+
+    setValue(0);
   };
 
   const handleInputChange = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     setCommentData({ ...commentData, [name]: value });
   };
@@ -152,9 +156,12 @@ export default function MakeComments({
             </div>
             <div className="AddComment">
               <input
-                type="btn"
+                type="button"
                 value="Додати відгук"
-                onClick={() => addComment()}
+                onClick={() => {
+                  addComment();
+                  setCommentsActive(false);
+                }}
               />
             </div>
           </div>
