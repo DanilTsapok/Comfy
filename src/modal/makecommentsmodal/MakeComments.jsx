@@ -150,7 +150,11 @@ export default function MakeComments({
               />
             </div>
             <div className="AddComment">
-              <input value="Додати відгук" onClick={() => addComment()} />
+              <input
+                type="btn"
+                value="Додати відгук"
+                onClick={() => addComment()}
+              />
             </div>
           </div>
         </form>

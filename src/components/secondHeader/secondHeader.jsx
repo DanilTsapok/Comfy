@@ -8,7 +8,7 @@ import heart from "../../assets/png/icons8-heart-24.png";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 
-export default function Secondheader() {
+export default function Secondheader({ setModalActive }) {
   return (
     <>
       <div className="second-header">
