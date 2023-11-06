@@ -15,7 +15,7 @@ function App() {
           <Route path=":id" element={<ProductHomePage products={data} />} />
           <Route
             path="/comments/:id"
-            element={<CommentsHomePage comments={data} />}
+            element={<CommentsHomePage commentsData={data} />}
           />
         </Routes>
       </BrowserRouter>

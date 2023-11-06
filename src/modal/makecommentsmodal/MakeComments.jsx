@@ -7,8 +7,28 @@ import { BsFillPlusCircleFill } from "react-icons/bs";
 export default function MakeComments({
   makecommentsActive,
   setCommentsActive,
+  comments,
+  setComments,
 }) {
+  const commentState = {
+    name: "",
+    email: "",
+    text: "",
+    advantages: "",
+    disadvantages: "",
+  };
   const [value, setValue] = useState(0);
+  const [commentData, setCommentData] = useState(commentState);
+
+  const addComment = () => {
+    const newComment = { ...commentData, rating: value };
+    setComments([...comments, newComment]);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setCommentData({ ...commentData, [name]: value });
+  };
   return (
     <div
       className={
@@ -39,8 +59,10 @@ export default function MakeComments({
               <input
                 type="text"
                 required
+                name="name"
                 className="userdata"
                 placeholder="Name"
+                onChange={handleInputChange}
               />
             </div>
             <div className="comment-title-email">
@@ -50,6 +72,8 @@ export default function MakeComments({
                 required
                 placeholder="E-mail"
                 className="userdata"
+                name="email"
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -57,6 +81,8 @@ export default function MakeComments({
             <h1>Ваш коментар</h1>
             <div className="textarea">
               <textarea
+                name="text"
+                onChange={handleInputChange}
                 required
                 placeholder="Загальні враження від використання товару"
               ></textarea>
@@ -84,11 +110,21 @@ export default function MakeComments({
             <div className="comment-advantage-disadvantage">
               <div className="advantage ">
                 <h1>Переваги</h1>
-                <input type="text" className="userdata" />
+                <input
+                  type="text"
+                  className="userdata"
+                  name="advantages"
+                  onChange={handleInputChange}
+                />
               </div>
               <div className="disadvantage">
                 <h1>Недоліки</h1>
-                <input type="text" className="userdata" />
+                <input
+                  type="text"
+                  className="userdata"
+                  name="disadvantages"
+                  onChange={handleInputChange}
+                />
               </div>
             </div>
             <div
@@ -113,8 +149,8 @@ export default function MakeComments({
                 hidden
               />
             </div>
-            <div className="AddCommnet">
-              <input type="submit" value="Додати відгук" />
+            <div className="AddComment">
+              <input value="Додати відгук" onClick={() => addComment()} />
             </div>
           </div>
         </form>

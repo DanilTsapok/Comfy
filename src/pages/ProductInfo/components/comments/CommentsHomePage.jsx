@@ -10,12 +10,15 @@ import Footer from "../../../../components/Footer/Footer";
 import MakeComments from "../../../../modal/makecommentsmodal/MakeComments";
 import CommnetsBody from "./components/comments-body/CommnetsBody";
 
-export default function CommentsHomePage({ comments }) {
+export default function CommentsHomePage({ commentsData }) {
   const { id } = useParams();
-  const selectProduct = comments.find((product) => product.id == id);
+  const selectProduct = commentsData.find((product) => product.id == id);
   const [isHovered, setHover] = useState(false);
   const [MakeCommentsActive, setMakeCommentsActive] = useState(false);
-  console.log(MakeCommentsActive);
+
+  const [comments, setComments] = useState([]);
+
+  console.log(comments);
   return (
     <>
       <Header />
@@ -27,12 +30,16 @@ export default function CommentsHomePage({ comments }) {
       <CommnetsBody
         selectProduct={selectProduct}
         setCommentsActive={setMakeCommentsActive}
+        comments={comments}
+        setComments={setComments}
       />
 
       <Footer />
       <MakeComments
         makecommentsActive={MakeCommentsActive}
         setCommentsActive={setMakeCommentsActive}
+        comments={comments}
+        setComments={setComments}
       />
     </>
   );

@@ -3,7 +3,12 @@ import "./commentsBody-style.scss";
 import { Box, Rating } from "@mui/material";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import StarIcon from "@mui/icons-material/Star";
-export default function CommnetsBody({ selectProduct, setCommentsActive }) {
+export default function CommnetsBody({
+  selectProduct,
+  setCommentsActive,
+  comments,
+}) {
+  console.log(comments);
   return (
     <div className="comments-wrapper">
       <div className="comments-main">
@@ -46,7 +51,17 @@ export default function CommnetsBody({ selectProduct, setCommentsActive }) {
             </div>
             <div className="comment">
               <div className="comment-header">
-                <div className="comment-user"></div>
+                {comments.map((comment, index) => (
+                  <div key={index}>
+                    <p>Name: {comment.name}</p>
+                    <p>Email: {comment.email}</p>
+                    <p>Text: {comment.text}</p>
+                    <p>Advantages: {comment.advantages}</p>
+                    <p>Disadvantages: {comment.disadvantages}</p>
+                    <p>Rating: {comment.rating}</p>
+                  </div>
+                ))}
+
                 <div className="comment-date"></div>
               </div>
             </div>
