@@ -18,7 +18,6 @@ export default function CommentsHomePage({ commentsData }) {
 
   const [comments, setComments] = useState([]);
 
-  console.log(comments);
   return (
     <>
       <Header />

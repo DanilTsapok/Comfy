@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import CloseIcon from "@mui/icons-material/Close";
 import { BsFillPlusCircleFill } from "react-icons/bs";
+import useConsoleState from "../../hooks/useConsoleState";
 export default function MakeComments({
   makecommentsActive,
   setCommentsActive,
@@ -18,7 +19,7 @@ export default function MakeComments({
     disadvantages: "",
   };
   const [value, setValue] = useState(0);
-  const [commentData, setCommentData] = useState(commentState);
+  const [commentData, setCommentData] = useConsoleState(commentState);
 
   const addComment = () => {
     const newComment = { ...commentData, rating: value };

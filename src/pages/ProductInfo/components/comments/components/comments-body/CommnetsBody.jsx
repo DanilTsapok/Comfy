@@ -8,7 +8,6 @@ export default function CommnetsBody({
   setCommentsActive,
   comments,
 }) {
-  console.log(comments);
   return (
     <div className="comments-wrapper">
       <div className="comments-main">
