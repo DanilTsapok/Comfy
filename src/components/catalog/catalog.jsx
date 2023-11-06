@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import catalog from "../../data/catalog";
 import "./catalog-style.scss";
 import "./../../colors.scss";
@@ -16,6 +16,7 @@ import samsungLogo from "./../../assets/png/samsung-logo.png";
 import appleLogo from "./../../assets/png/Apple_logo-main.png";
 import xiaomiLogo from "./../../assets/png/1200x628.png";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+import useHover from "../../hooks/useHover";
 const Catalog = () => {
   const [isHovered, setHover] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
