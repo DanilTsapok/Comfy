@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../../../components/firstHeader/Header";
 import Secondheader from "../../../../components/secondHeader/secondHeader";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Nav from "../../../../components/nav/Nav";
 
 import Catalog from "../../../../components/catalog/catalog";
@@ -17,7 +17,8 @@ export default function CommentsHomePage({ commentsData }) {
   const [MakeCommentsActive, setMakeCommentsActive] = useState(false);
 
   const [comments, setComments] = useState([]);
-
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <>
       <Header />
@@ -25,6 +26,7 @@ export default function CommentsHomePage({ commentsData }) {
       <div className={isHovered ? "catalog-active" : "catalog-default"}>
         <Catalog />
       </div>
+
       <Nav product={selectProduct} />
       <CommnetsBody
         selectProduct={selectProduct}

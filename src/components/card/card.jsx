@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import data from "../../data/products";
 import "./card-style.scss";
 import crash from "../../assets/svg/krash.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MessageOutlined } from "@ant-design/icons";
 import commentIcon from "./../../assets/png/icons8-comments-48.png";
 import { LiaShoppingCartSolid } from "react-icons/lia";
@@ -23,7 +23,8 @@ const Card = ({ fun2, fun3 }) => {
       fun3(index);
     }
   };
-
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <div className="cards-container">
       <div className="cards-header">

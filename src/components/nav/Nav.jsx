@@ -1,10 +1,11 @@
 import React from "react";
 import "./nav-style.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 export default function Nav({ product }) {
+  const location = useLocation();
   return (
     <>
-      <div className="nav-path"></div>
+      <div className="nav-path">{location.pathname}</div>
       <div className="navigation">
         <div className="nav-items">
           <Link to={`/${product.id}`} className={`nav-item `}>
@@ -15,7 +16,7 @@ export default function Nav({ product }) {
             Характеристики
           </a>
           <div className="nav-delimiter"></div>
-          <Link to={`/comments/${product.id}`} className={`nav-item`}>
+          <Link to={`/${product.id}/comments`} className={`nav-item`}>
             Відгуки<span>{product.numOfComments}</span>
           </Link>
           <div className="nav-delimiter"></div>
