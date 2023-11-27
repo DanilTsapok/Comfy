@@ -75,6 +75,7 @@ const ProductState = [
       "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
   },
 ];
+
 export default function ProductProvider({ children }) {
   const [products, setProducts] = useState(ProductState);
 

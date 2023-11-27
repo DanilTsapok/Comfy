@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./productMain-styles.scss";
 import commentIcon from "./../../../../assets/png/icons8-comments-48.png";
 import StarIcon from "@mui/icons-material/Star";
@@ -6,6 +6,7 @@ import crash from "../../../../assets/svg/krash.svg";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Nav from "../../../../components/nav/Nav";
+
 const ProductMain = ({ product }) => {
   return (
     <>

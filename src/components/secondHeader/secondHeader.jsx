@@ -7,6 +7,7 @@ import loop from "../../assets/png/icons8-search-48.png";
 import heart from "../../assets/png/icons8-heart-24.png";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { LiaShoppingCartSolid } from "react-icons/lia";
+import { Link } from "react-router-dom";
 
 export default function Secondheader({ setModalActive }) {
   return (
@@ -35,9 +36,9 @@ export default function Secondheader({ setModalActive }) {
             </div>
             <div className="second-header-items">
               <div className="second-header-login cssanimation blurInRight">
-                <a href="#" onClick={() => setModalActive(true)}>
+                <Link to="/" onClick={() => setModalActive(true)}>
                   Увійти
-                </a>
+                </Link>
               </div>
               <div className="second-header-like cssanimation blurInRight">
                 <img src={heart} alt="" />

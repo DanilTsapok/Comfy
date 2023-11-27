@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import data from "../../data/products";
+import data, { ProductContext } from "../../data/products";
 import "./card-style.scss";
 import crash from "../../assets/svg/krash.svg";
 import { Link, useLocation } from "react-router-dom";
@@ -8,16 +8,16 @@ import commentIcon from "./../../assets/png/icons8-comments-48.png";
 import { Box, Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import useHover from "../../hooks/useHover";
-import BuyProductModal from "../../modal/buyProductmodal/BuyProductModal";
+
 import { LiaShoppingCartSolid } from "react-icons/lia";
 
 const Card = ({ setOpen }) => {
-  const [cardsData, setCardsData] = useState(data);
+  const { products, setProducts } = useContext(ProductContext);
 
   const handleButtonClick = (index) => {
-    const updatedData = [...cardsData];
+    const updatedData = [...products];
     updatedData[index].checked = !updatedData[index].checked;
-    setCardsData(updatedData);
+    setProducts(updatedData);
     setOpen(true);
   };
 
@@ -35,7 +35,7 @@ const Card = ({ setOpen }) => {
       </div>
       <div className="cards-body">
         <div className="cards">
-          {cardsData.map((element, index) => {
+          {products.map((element, index) => {
             const ref = useRef();
             const isHovering = useHover(ref);
             return (

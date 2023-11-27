@@ -16,25 +16,22 @@ import samsungLogo from "./../../assets/png/samsung-logo.png";
 import appleLogo from "./../../assets/png/Apple_logo-main.png";
 import xiaomiLogo from "./../../assets/png/1200x628.png";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
-import useHover from "../../hooks/useHover";
+
 const Catalog = () => {
   const [isHovered, setHover] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+
   const imgArray = [img1, img2, img3, img4];
 
   return (
     <div className="catalog ">
       <div className="catalog-container">
         <div className="catalog-wrapper">
-          <div className="catalog-left-side cssanimation moveFromTop">
+          <div className="catalog-left-side ">
             {catalog.map((element, index) => (
-              <div
-                className="catalog-items cssanimation moveFromTop blur"
-                key={index}
-              >
+              <div className="catalog-items " key={index}>
                 <a
                   href=""
-                  onMouseEnter={() => setHover(true)}
+                  onMouseEnter={() => setHover(false)}
                   onMouseLeave={() => setHover(false)}
                 >
                   <div className="link ">
