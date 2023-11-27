@@ -22,11 +22,14 @@ export default function MakeComments({
   const [value, setValue] = useState(0);
   const [commentData, setCommentData] = useConsoleState(commentState);
 
+  const resetForm = () => {
+    setCommentData(commentState);
+    setValue(0);
+  };
   const addComment = () => {
     const newComment = { ...commentData, rating: value };
     setComments([...comments, newComment]);
-
-    setValue(0);
+    resetForm();
   };
 
   const handleInputChange = (e) => {
@@ -68,6 +71,7 @@ export default function MakeComments({
                 className="userdata"
                 placeholder="Name"
                 onChange={handleInputChange}
+                value={commentData.name}
               />
             </div>
             <div className="comment-title-email">
@@ -79,6 +83,7 @@ export default function MakeComments({
                 className="userdata"
                 name="email"
                 onChange={handleInputChange}
+                value={commentData.email}
               />
             </div>
           </div>
@@ -90,6 +95,7 @@ export default function MakeComments({
                 onChange={handleInputChange}
                 required
                 placeholder="Загальні враження від використання товару"
+                value={commentData.text}
               ></textarea>
             </div>
             <p>
@@ -120,6 +126,7 @@ export default function MakeComments({
                   className="userdata"
                   name="advantages"
                   onChange={handleInputChange}
+                  value={commentData.advantages}
                 />
               </div>
               <div className="disadvantage">
@@ -129,6 +136,7 @@ export default function MakeComments({
                   className="userdata"
                   name="disadvantages"
                   onChange={handleInputChange}
+                  value={commentData.disadvantages}
                 />
               </div>
             </div>

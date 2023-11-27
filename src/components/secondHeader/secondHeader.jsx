@@ -18,32 +18,28 @@ export default function Secondheader({ setModalActive }) {
             <div className="second-header-catalog">
               <div className="catalog">
                 <div className="catalog-header">
-                  <img
-                    src={blockchain}
-                    alt=""
-                    className="first-icon cssanimation blurInRight"
-                  />
-                  <p className="cssanimation blurInRight">Каталог товарів</p>
+                  <img src={blockchain} alt="" className="first-icon " />
+                  <p className="">Каталог товарів</p>
                 </div>
                 <div className="catalog-header-icon">
                   <img src={arrow} alt="" className="second-icon" />
                 </div>
               </div>
             </div>
-            <div className="second-header-search cssanimation blurInRight">
+            <div className="second-header-search ">
               <input placeholder="Пошук товарів" />
               <img src={loop} alt="" />
             </div>
             <div className="second-header-items">
-              <div className="second-header-login cssanimation blurInRight">
+              <div className="second-header-login ">
                 <Link to="/" onClick={() => setModalActive(true)}>
                   Увійти
                 </Link>
               </div>
-              <div className="second-header-like cssanimation blurInRight">
+              <div className="second-header-like ">
                 <img src={heart} alt="" />
               </div>
-              <div className="second-header-basket cssanimation blurInRight">
+              <div className="second-header-basket ">
                 <LiaShoppingCartSolid size={26} color="white" />
                 <p>Кошик </p>
               </div>

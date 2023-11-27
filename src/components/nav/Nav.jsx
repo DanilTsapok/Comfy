@@ -19,9 +19,9 @@ export default function Nav({ product }) {
             Все про товар
           </Link>
           <div className="nav-delimiter"></div>
-          <a href="" className={`nav-item`}>
+          <Link to={`/${product.id}/characteristics`} className={`nav-item`}>
             Характеристики
-          </a>
+          </Link>
           <div className="nav-delimiter"></div>
           <Link to={`/${product.id}/comments`} className={`nav-item`}>
             Відгуки<span>{product.numOfComments}</span>

@@ -8,6 +8,7 @@ import data from "./data/products";
 import ProductProvider from "./data/products";
 import CommentsHomePage from "./pages/ProductInfo/components/comments/CommentsHomePage";
 import Admin from "./pages/admin/Admin";
+import Characteristics from "./pages/ProductInfo/components/characteristics/Characteristics";
 
 function App() {
   return (
@@ -19,6 +20,12 @@ function App() {
             <Route path="*" element={<>404 Not found</>} />
             <Route path="/:id" element={<ProductHomePage />} />
             <Route path="/:id/comments" element={<CommentsHomePage />} />
+            <Route path="/:id/characteristics" element={<Characteristics />} />
+            {/* <Route path="/:id/questions" element={<Questions />} />
+            <Route path="/:id/videos" element={<Vidoes />} />
+            <Route path="/:id/accessories" element={<Accessories />} />
+            <Route path="/:id/services" element={<Services />} />
+            <Route path="/:id/shops" element={<Shops />} /> */}
             <Route path="admin" element={<Admin />} />
           </Routes>
         </BrowserRouter>
