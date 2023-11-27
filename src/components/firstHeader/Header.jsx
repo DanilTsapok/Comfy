@@ -15,7 +15,7 @@ export default function Header() {
             <div className="header-left-side">
               <div className="header-logo">
                 <Link to="/">
-                  <img src={logo} alt="" />
+                  <img src={logo} alt="" className="" />
                 </Link>
               </div>
               <div className="header-city-menu">
@@ -27,9 +27,11 @@ export default function Header() {
                 </a>
               </div>
             </div>
-            <div className="header-right-side">
-              <div className="header-promotion">
-                <a href="#">Акції</a>
+            <div className="header-right-side ">
+              <div className="header-promotion ">
+                <a href="#" className="">
+                  Акції
+                </a>
               </div>
               <div className="header-present-cards">
                 <a href="#">Подарункові картки</a>

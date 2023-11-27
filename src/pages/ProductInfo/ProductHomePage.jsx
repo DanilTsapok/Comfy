@@ -12,6 +12,7 @@ const ProductHomePage = ({ products }) => {
   const selectProduct = products.find((product) => product.id == id);
   const location = useLocation();
   console.log(location.pathname);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

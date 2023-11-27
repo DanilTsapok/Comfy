@@ -3,7 +3,7 @@ import catalog from "../../data/catalog";
 import "./catalog-style.scss";
 import "./../../colors.scss";
 import { useState } from "react";
-import { DownOutlined } from "@ant-design/icons";
+
 import outlet from "./../../assets/catalog-icons/outlet.svg";
 import krash from "./../../assets/catalog-icons/krash.svg";
 import toyicon from "./../../assets/png/toyicon.png";
@@ -23,18 +23,21 @@ const Catalog = () => {
   const imgArray = [img1, img2, img3, img4];
 
   return (
-    <div className="catalog">
+    <div className="catalog ">
       <div className="catalog-container">
         <div className="catalog-wrapper">
-          <div className="catalog-left-side">
+          <div className="catalog-left-side cssanimation moveFromTop">
             {catalog.map((element, index) => (
-              <div className="catalog-items" key={index}>
+              <div
+                className="catalog-items cssanimation moveFromTop blur"
+                key={index}
+              >
                 <a
                   href=""
                   onMouseEnter={() => setHover(true)}
                   onMouseLeave={() => setHover(false)}
                 >
-                  <div className="link">
+                  <div className="link ">
                     <img src={element.icon} className="catalog-icon" alt="" />
                     <p>{element.item}</p>
                   </div>
@@ -79,9 +82,9 @@ const Catalog = () => {
             isHovered ? "catalog-right-side active" : "catalog-right-side "
           }
         >
-          <div className="catalog-right-side-items">
+          <div className="catalog-right-side-items  cssanimation blurIn">
             <a href="">
-              <div className="right-side-item">
+              <div className="right-side-item ">
                 <div className="item-logo">
                   <img src={outlet} alt="" />
                 </div>
@@ -111,7 +114,7 @@ const Catalog = () => {
               </div>
             </a>
           </div>
-          <div className="catalog-right-side-slider">
+          <div className="catalog-right-side-slider ">
             <div className="slider-slide-wrapper">
               <div className="slider-slide-wrap">
                 {imgArray.map((slide, index) => (
@@ -122,7 +125,7 @@ const Catalog = () => {
               </div>
             </div>
           </div>
-          <div className="catalog-right-side-brands">
+          <div className="catalog-right-side-brands ">
             <div className="right-side-brand">
               <img src={samsungLogo} alt="" />
             </div>

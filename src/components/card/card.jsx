@@ -1,32 +1,34 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import data from "../../data/products";
 import "./card-style.scss";
 import crash from "../../assets/svg/krash.svg";
 import { Link, useLocation } from "react-router-dom";
-import { MessageOutlined } from "@ant-design/icons";
 import commentIcon from "./../../assets/png/icons8-comments-48.png";
-import { LiaShoppingCartSolid } from "react-icons/lia";
-import { TbShoppingCartCheck } from "react-icons/tb";
+
 import { Box, Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import useHover from "../../hooks/useHover";
-const Card = ({ fun2, fun3 }) => {
+import BuyProductModal from "../../modal/buyProductmodal/BuyProductModal";
+import { LiaShoppingCartSolid } from "react-icons/lia";
+
+const Card = ({ setOpen }) => {
   const [cardsData, setCardsData] = useState(data);
 
   const handleButtonClick = (index) => {
     const updatedData = [...cardsData];
     updatedData[index].checked = !updatedData[index].checked;
     setCardsData(updatedData);
-    if (updatedData[index].checked) {
-      fun2(index);
-    } else {
-      fun3(index);
-    }
+    setOpen(true);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const location = useLocation();
   console.log(location.pathname);
   return (
-    <div className="cards-container">
+    <div className="cards-container cssanimation blurInRight">
       <div className="cards-header">
         <h1>Кращ</h1>
         <a href="">Дивитися всі</a>
@@ -84,7 +86,7 @@ const Card = ({ fun2, fun3 }) => {
                     </div>
                     <div className="info-main-numOfComments">
                       <img src={commentIcon} alt="" />
-                      <Link to={`/comments/${element.id}`}>
+                      <Link to={`${element.id}/comments`}>
                         {element.numOfComments}
                       </Link>
                     </div>

@@ -1,0 +1,58 @@
+
+.checked{
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #3ba724 ;
+    background-color: lightgreen;
+    color:#43b02a ;
+    transition: 0.3s all;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+
+}
+.default{
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    background-color: #3ba724;
+    color: white;
+    transition: 0.3s all;
+    cursor: pointer;
+   
+}
+.default:hover{
+    background-color: darkorange;
+}
+
+.buyProductModal{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;  
+    transition: .5s;
+}
+.butProductActive{
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+    transform: scale(1);
+    transition: .5s;
+    z-index: 999;
+}
+.buyProductModalBody{
+    width: 50%;
+    height: 100%;
+    background-color: white;
+}

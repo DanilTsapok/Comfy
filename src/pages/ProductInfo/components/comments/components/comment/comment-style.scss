@@ -1,0 +1,44 @@
+@import "./../../../../../../colors.scss";
+.comment-main {
+    width: 100%;
+    height: 100%; 
+    border: 1px solid $color-gray;
+    border-radius: 8px;
+    flex-direction: column-reverse;
+    .item-content {
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+    }
+}
+.name-product{
+    p{
+        font-size: 14px;
+    }
+}
+.item-content-text{
+    padding: 24px 0px;
+    .comment-text{
+        font-size: 14px;
+    }
+}
+.comment-advantage-disadvantage{
+    div{
+        margin-top: 20px;
+    }
+    p{
+        font-size: 14px;
+    }
+    .title{
+        font-weight: 600;
+    }
+}
+.item__header {
+    display: flex;
+    justify-content: space-between;
+   
+    .comment-date{
+        font-size: 12px;
+        
+    }
+}

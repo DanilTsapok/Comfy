@@ -3,6 +3,8 @@ import "./commentsBody-style.scss";
 import { Box, Rating } from "@mui/material";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import StarIcon from "@mui/icons-material/Star";
+import { LiaShoppingCartSolid } from "react-icons/lia";
+import Comment from "../comment/Comment";
 export default function CommnetsBody({
   selectProduct,
   setCommentsActive,
@@ -49,20 +51,11 @@ export default function CommnetsBody({
               </div>
             </div>
             <div className="comment">
-              <div className="comment-header">
-                {comments.map((comment, index) => (
-                  <div key={index}>
-                    <p>Name: {comment.name}</p>
-                    <p>Email: {comment.email}</p>
-                    <p>Text: {comment.text}</p>
-                    <p>Advantages: {comment.advantages}</p>
-                    <p>Disadvantages: {comment.disadvantages}</p>
-                    <p>Rating: {comment.rating}</p>
-                  </div>
-                ))}
-
-                <div className="comment-date"></div>
-              </div>
+              {comments.map((comment, index) => (
+                <div key={index} className="comment-body">
+                  <Comment comment={comment} selectProduct={selectProduct} />
+                </div>
+              ))}
             </div>
           </div>
           <div className="comments-body-right-side">
@@ -81,9 +74,14 @@ export default function CommnetsBody({
                 <h1>
                   {selectProduct.price} <span>₴</span>
                 </h1>
-                <div className="product-info-icons"></div>
+                <div className="product-info-icons">
+                  <p>на бонусний рахунок</p>
+                </div>
               </div>
-              <button className="product-info-body-btn">Купити</button>
+              <button className="product-info-body-btn">
+                <LiaShoppingCartSolid size={25} />
+                Купити
+              </button>
             </div>
           </div>
         </div>

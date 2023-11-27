@@ -1,4 +1,8 @@
-const data = [
+import { createContext, useState } from "react";
+
+export const ProductContext = createContext();
+
+const ProductState = [
   {
     id: 12411,
     name: "Смартфон Apple iPhone 14 Pro Max 128Gb Space Black",
@@ -10,6 +14,8 @@ const data = [
     question: 123,
     oldPrice: 123,
     rating: 2,
+    details:
+      "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
   },
   {
     id: 12432,
@@ -23,6 +29,8 @@ const data = [
     video: 411,
     oldPrice: 123,
     rating: 4,
+    details:
+      "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
   },
   {
     id: 42344,
@@ -35,6 +43,8 @@ const data = [
     video: 123,
     oldPrice: 123,
     rating: 2.4,
+    details:
+      "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
   },
   {
     id: 413123,
@@ -47,6 +57,8 @@ const data = [
     video: 12,
     oldPrice: 123,
     rating: 2,
+    details:
+      "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
   },
   {
     id: 134121,
@@ -59,6 +71,16 @@ const data = [
     video: 53,
     oldPrice: 123,
     rating: 1,
+    details:
+      "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
   },
 ];
-export default data;
+export default function ProductProvider({ children }) {
+  const [products, setProducts] = useState(ProductState);
+
+  return (
+    <ProductContext.Provider value={{ products, setProducts }}>
+      {children}
+    </ProductContext.Provider>
+  );
+}

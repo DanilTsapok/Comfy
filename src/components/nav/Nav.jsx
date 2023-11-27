@@ -3,11 +3,18 @@ import "./nav-style.scss";
 import { Link, useLocation } from "react-router-dom";
 export default function Nav({ product }) {
   const location = useLocation();
+  const pathSegments = location.pathname
+    .split("/")
+    .filter((segment) => segment !== "");
   return (
     <>
-      <div className="nav-path">{location.pathname}</div>
-      <div className="navigation">
-        <div className="nav-items">
+      <div className="path">
+        <div className="nav-path">
+          Головна{pathSegments.length > 0 && " > " + pathSegments.join(" > ")}
+        </div>
+      </div>
+      <div className="navigation ">
+        <div className="nav-items ">
           <Link to={`/${product.id}`} className={`nav-item `}>
             Все про товар
           </Link>

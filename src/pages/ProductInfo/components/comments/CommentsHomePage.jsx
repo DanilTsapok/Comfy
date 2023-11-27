@@ -15,7 +15,6 @@ export default function CommentsHomePage({ commentsData }) {
   const selectProduct = commentsData.find((product) => product.id == id);
   const [isHovered, setHover] = useState(false);
   const [MakeCommentsActive, setMakeCommentsActive] = useState(false);
-
   const [comments, setComments] = useState([]);
   const location = useLocation();
   console.log(location.pathname);

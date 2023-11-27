@@ -7,24 +7,22 @@ import { useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import AuthModal from "../../modal/authmodal/authmodal";
 import { useLocation } from "react-router-dom";
+import BuyProductModal from "../../modal/buyProductmodal/BuyProductModal";
+
 const Home = () => {
-  const fun2 = () => setNum(num - 1);
-  const fun3 = () => setNum(num - 1);
   const [modalActive, setModalActive] = useState(false);
   const location = useLocation();
+  const [open, setOpen] = useState(false);
   console.log(location.pathname);
   return (
     <>
       <Header />
       <Secondheader setModalActive={setModalActive} />
       <Catalog />
-      <Card fun2={fun2} fun3={fun3} />
-      <Card fun2={fun2} fun3={fun3} />
-      <Card fun2={fun2} fun3={fun3} />
-      <Card fun2={fun2} fun3={fun3} />
-      <Card fun2={fun2} fun3={fun3} />
+      <Card setOpen={setOpen} />
       <Footer />
       <AuthModal modalActive={modalActive} setModalActive={setModalActive} />
+      <BuyProductModal open={open} setOpen={setOpen} />
     </>
   );
 };

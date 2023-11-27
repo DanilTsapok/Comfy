@@ -12,6 +12,7 @@
     pointer-events: none;
     opacity: 0;  
     transition: .5s;
+  
 }
 
 .authmodal-body{
@@ -23,6 +24,7 @@
     transform: scale(0);
     transition: .5s;
     display: flex;
+    
     
 }
 .authmodal-body-left-side{
@@ -133,13 +135,13 @@
 
 
 }
-
 .authactive{
     opacity: 1;
     transform: scale(1);
     pointer-events: all;
     transform: scale(1);
     transition: .5s;
+    z-index: 999;
 
  
 }
