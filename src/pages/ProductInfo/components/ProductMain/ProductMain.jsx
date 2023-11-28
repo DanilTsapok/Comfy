@@ -6,8 +6,11 @@ import crash from "../../../../assets/svg/krash.svg";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Nav from "../../../../components/nav/Nav";
+import { Col, Image, Row, Statistic } from "antd";
+import CountUp from "react-countup";
 
 const ProductMain = ({ product }) => {
+  const formatter = (value) => <CountUp end={value} separator="," />;
   return (
     <>
       <Nav product={product} />
@@ -29,7 +32,9 @@ const ProductMain = ({ product }) => {
               <img src={product.img} alt="" />
             </div>
             <div className="right-gallery-img">
-              <img src={product.img} alt="" />
+              <Image.PreviewGroup>
+                <Image width={500} src={product.img} />
+              </Image.PreviewGroup>
             </div>
           </section>
           <section className="product-preview-right-side">
@@ -85,7 +90,14 @@ const ProductMain = ({ product }) => {
                 <h2>
                   ₴ <span>-5%</span>
                 </h2>
-                <h1> {product.price}₴</h1>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Row gutter={16}>
+                    <Col span={12}>
+                      <Statistic value={product.price} formatter={formatter} />
+                    </Col>
+                  </Row>
+                  <span> ₴</span>
+                </div>
                 <a href="">Купити</a>
               </div>
               <div className="info-product-price-btns"></div>

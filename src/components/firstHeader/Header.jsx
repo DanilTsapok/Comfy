@@ -5,6 +5,7 @@ import logo from "../../assets/catalog-icons/logo_main.svg";
 import phone from "../../assets/catalog-icons/phone_icon_136322.svg";
 import { DownOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { Popover } from "antd";
 
 export default function Header() {
   return (
@@ -21,9 +22,9 @@ export default function Header() {
               <div className="header-city-menu">
                 <a href="#">
                   Миколаїв
-                  <DownOutline
+                  {/* <DownOutline
                     style={{ fontSize: "10px", marginLeft: 8, marginRight: 3 }}
-                  />
+                  /> */}
                 </a>
               </div>
             </div>
@@ -50,18 +51,20 @@ export default function Header() {
               </div>
               <div className="header-delimiter"></div>
               <div className="header-help">
-                <a href="#">
-                  <img src={phone} alt="" />
-                  Допомога
-                  <DownOutlined
-                    style={{
-                      width: 12,
+                <Popover placement="bottom" title={"Дізнатися"}>
+                  <a href="#">
+                    <img src={phone} alt="" />
+                    Допомога
+                    <DownOutlined
+                      style={{
+                        width: 12,
 
-                      marginLeft: 10,
-                      marginRight: 3,
-                    }}
-                  />
-                </a>
+                        marginLeft: 10,
+                        marginRight: 3,
+                      }}
+                    />
+                  </a>
+                </Popover>
               </div>
               <div className="header-delimiter"></div>
               <div className="header-change-lang">

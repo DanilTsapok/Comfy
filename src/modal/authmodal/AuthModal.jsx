@@ -3,7 +3,6 @@ import { FcGoogle } from "react-icons/fc";
 import "./authmodal-style.scss";
 import authLogo from "./../../assets/authicon/log-ll_4.svg";
 import CloseIcon from "@mui/icons-material/Close";
-// import RegisterModal from "../RegisterModal.jsx/RegisterModal";
 export default function AuthModal({ modalActive, setModalActive }) {
   return (
     <div
@@ -41,7 +40,7 @@ export default function AuthModal({ modalActive, setModalActive }) {
                 <input placeholder="Password" required />
               </div>
 
-              {/* <RegisterModal /> */}
+              <input type="submit" value="Увійти" />
               <div className="about">
                 <hr />
                 <span>Або</span>

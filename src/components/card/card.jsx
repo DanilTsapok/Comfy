@@ -11,7 +11,8 @@ import useHover from "../../hooks/useHover";
 
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import RegisterModal from "../../modal/RegisterModal.jsx/RegisterModal";
-
+import { Col, Image, Row, Statistic } from "antd";
+import CountUp from "react-countup";
 const Card = ({ setOpen }) => {
   const { products, setProducts } = useContext(ProductContext);
 
@@ -28,6 +29,7 @@ const Card = ({ setOpen }) => {
 
   const location = useLocation();
   console.log(location.pathname);
+  const formatter = (value) => <CountUp end={value} separator="," />;
   return (
     <div className="cards-container cssanimation blurInRight">
       <div className="cards-header">
@@ -56,7 +58,9 @@ const Card = ({ setOpen }) => {
                   </div>
                 </div>
                 <div className="card-img">
-                  <img src={element.img} alt="" />
+                  <Image.PreviewGroup>
+                    <Image width={150} src={element.img} />
+                  </Image.PreviewGroup>
                 </div>
                 <div className="card-title">
                   <Link to={`/${element.id}`} className="card-title-title">
@@ -99,10 +103,17 @@ const Card = ({ setOpen }) => {
                 <div className="card-box-price">
                   <div className="c-b-price">
                     <p className="old-price">{element.oldPrice}₴</p>
-                    <h2>
-                      {element.price}
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <Row gutter={16}>
+                        <Col span={12}>
+                          <Statistic
+                            value={element.price}
+                            formatter={formatter}
+                          />
+                        </Col>
+                      </Row>
                       <span> ₴</span>
-                    </h2>
+                    </div>
                   </div>
                   <div className="card-btn-buy">
                     <Tooltip placement="bottom" title={"Придбати"}>
