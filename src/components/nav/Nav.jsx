@@ -31,9 +31,9 @@ export default function Nav({ product }) {
             Питання<span>{product.question}</span>
           </a>
           <div className="nav-delimiter"></div>
-          <a href="" className={`nav-item `}>
+          <Link to="" className={`nav-item `}>
             Відео<span>{product.video}</span>
-          </a>
+          </Link>
           <div className="nav-delimiter"></div>
           <a href="" className={`nav-item `}>
             Аксесуари

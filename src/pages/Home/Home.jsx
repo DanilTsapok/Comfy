@@ -5,12 +5,13 @@ import Secondheader from "../../components/secondHeader/secondHeader";
 
 import { useState } from "react";
 import Footer from "../../components/Footer/Footer";
-import AuthModal from "../../modal/authmodal/authmodal";
+
 import { useLocation } from "react-router-dom";
 import BuyProductModal from "../../modal/buyProductmodal/BuyProductModal";
 import ProductProvider, { ProductContext } from "../../data/products";
 import Loader from "../../components/loader/Loader";
 import Messenger from "../../components/messenger/Messenger";
+import AuthModal from "../../modal/authmodal/AuthModal";
 
 const Home = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -26,6 +27,7 @@ const Home = () => {
       <ProductProvider>
         <Header />
         <Secondheader setModalActive={setModalActive} />
+
         <Catalog />
         <Card setOpen={setOpen} />
         <Footer />

@@ -16,6 +16,7 @@ import samsungLogo from "./../../assets/png/samsung-logo.png";
 import appleLogo from "./../../assets/png/Apple_logo-main.png";
 import xiaomiLogo from "./../../assets/png/1200x628.png";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+import { Tooltip } from "antd";
 
 const Catalog = () => {
   const [isHovered, setHover] = useState(false);
@@ -29,29 +30,31 @@ const Catalog = () => {
           <div className="catalog-left-side ">
             {catalog.map((element, index) => (
               <div className="catalog-items " key={index}>
-                <a
-                  href=""
-                  onMouseEnter={() => setHover(false)}
-                  onMouseLeave={() => setHover(false)}
-                >
-                  <div className="link ">
-                    <img src={element.icon} className="catalog-icon" alt="" />
-                    <p>{element.item}</p>
-                  </div>
-                  <div>
-                    {element.list ? (
-                      <ArrowForwardIosOutlinedIcon
-                        style={{
-                          fontSize: "13px",
-                          marginLeft: 8,
-                          marginRight: 3,
-                        }}
-                      />
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                </a>
+                <Tooltip placement="bottom" title={element.item} color="green">
+                  <a
+                    href=""
+                    onMouseEnter={() => setHover(false)}
+                    onMouseLeave={() => setHover(false)}
+                  >
+                    <div className="link ">
+                      <img src={element.icon} className="catalog-icon" alt="" />
+                      <p>{element.item}</p>
+                    </div>
+                    <div>
+                      {element.list ? (
+                        <ArrowForwardIosOutlinedIcon
+                          style={{
+                            fontSize: "13px",
+                            marginLeft: 8,
+                            marginRight: 3,
+                          }}
+                        />
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  </a>
+                </Tooltip>
               </div>
             ))}
           </div>

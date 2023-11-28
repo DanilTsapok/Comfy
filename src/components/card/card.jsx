@@ -5,11 +5,12 @@ import crash from "../../assets/svg/krash.svg";
 import { Link, useLocation } from "react-router-dom";
 import commentIcon from "./../../assets/png/icons8-comments-48.png";
 
-import { Box, Rating } from "@mui/material";
+import { Box, Rating, Tooltip } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import useHover from "../../hooks/useHover";
 
 import { LiaShoppingCartSolid } from "react-icons/lia";
+import RegisterModal from "../../modal/RegisterModal.jsx/RegisterModal";
 
 const Card = ({ setOpen }) => {
   const { products, setProducts } = useContext(ProductContext);
@@ -31,7 +32,7 @@ const Card = ({ setOpen }) => {
     <div className="cards-container cssanimation blurInRight">
       <div className="cards-header">
         <h1>Кращ</h1>
-        <a href="">Дивитися всі</a>
+        <RegisterModal />
       </div>
       <div className="cards-body">
         <div className="cards">
@@ -46,7 +47,9 @@ const Card = ({ setOpen }) => {
               >
                 <div className="card-label">
                   <div className="card-crash">
-                    <img src={crash} alt="" />
+                    <Tooltip placement="right" title={"кращ"}>
+                      <img src={crash} alt="" />
+                    </Tooltip>
                   </div>
                   <div className="card-kod">
                     <p>Код: {element.id}</p>
@@ -102,16 +105,18 @@ const Card = ({ setOpen }) => {
                     </h2>
                   </div>
                   <div className="card-btn-buy">
-                    <button
-                      onClick={() => handleButtonClick(index)}
-                      className={element.checked ? "checked" : "default"}
-                    >
-                      {element.checked ? (
-                        <LiaShoppingCartSolid size={25} />
-                      ) : (
-                        <LiaShoppingCartSolid size={25} />
-                      )}
-                    </button>
+                    <Tooltip placement="bottom" title={"Придбати"}>
+                      <button
+                        onClick={() => handleButtonClick(index)}
+                        className={element.checked ? "checked" : "default"}
+                      >
+                        {element.checked ? (
+                          <LiaShoppingCartSolid size={25} />
+                        ) : (
+                          <LiaShoppingCartSolid size={25} />
+                        )}
+                      </button>
+                    </Tooltip>
                   </div>
                 </div>
 

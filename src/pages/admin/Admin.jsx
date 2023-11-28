@@ -1,5 +1,14 @@
 import React from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
+import {
+  Layout,
+  Menu,
+  Breadcrumb,
+  Space,
+  Table,
+  Tag,
+  Button,
+  Tooltip,
+} from "antd";
 import {
   UserOutlined,
   LaptopOutlined,
@@ -8,7 +17,169 @@ import {
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
+const columns = [
+  {
+    title: "Name",
+    dataIndex: "name",
+    key: "name",
+    render: (text) => <a>{text}</a>,
+  },
 
+  {
+    title: "Password",
+    dataIndex: "password",
+    key: "password",
+  },
+  {
+    title: "Address",
+    dataIndex: "address",
+    key: "address",
+  },
+  {
+    title: "Role",
+    key: "tags",
+    dataIndex: "tags",
+    render: (_, { tags }) => (
+      <>
+        {tags.map((tag) => {
+          let color = tag.length > 5 ? "geekblue" : "green";
+          if (tag === "loser") {
+            color = "volcano";
+          }
+          return (
+            <Tag color={color} key={tag}>
+              {tag.toUpperCase()}
+            </Tag>
+          );
+        })}
+      </>
+    ),
+  },
+  {
+    title: "Action",
+    key: "action",
+    render: (_, record) => (
+      <Space size="middle">
+        <Tooltip placement="top" title={"Редагувати користувача"}>
+          <Button type="primary">Edit</Button>
+        </Tooltip>
+        <Tooltip placement="top" title={"Забанити користувача "}>
+          <Button type="default">Ban</Button>
+        </Tooltip>
+        <Tooltip placement="top" title={"Видалити користувача"}>
+          <Button danger>Delete</Button>
+        </Tooltip>
+      </Space>
+    ),
+  },
+];
+const data = [
+  {
+    key: "1",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["User"],
+  },
+  {
+    key: "2",
+    name: "Danil Tsapok",
+    password: "234352",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+  {
+    key: "3",
+    name: "Danil Tsapok",
+    password: "12364158123",
+    address: "danilTsapok@gmail.com",
+    tags: ["user"],
+  },
+];
 const Admin = () => {
   return (
     <Layout>
@@ -64,6 +235,8 @@ const Admin = () => {
             }}
           >
             <h1>Admin Page Content</h1>
+
+            <Table columns={columns} dataSource={data} />
           </Content>
         </Layout>
       </Layout>

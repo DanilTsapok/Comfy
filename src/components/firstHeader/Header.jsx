@@ -21,7 +21,7 @@ export default function Header() {
               <div className="header-city-menu">
                 <a href="#">
                   Миколаїв
-                  <DownOutlined
+                  <DownOutline
                     style={{ fontSize: "10px", marginLeft: 8, marginRight: 3 }}
                   />
                 </a>
@@ -67,6 +67,7 @@ export default function Header() {
               <div className="header-change-lang">
                 <a href="">УКР</a>
                 <a href="">РУС</a>
+                <Link to="/admin">Кабінет адміна</Link>
               </div>
             </div>
           </div>

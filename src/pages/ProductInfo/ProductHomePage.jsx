@@ -10,7 +10,6 @@ const ProductHomePage = () => {
   const { products } = useContext(ProductContext);
   const { id } = useParams();
   const selectProduct = products.find((product) => product.id == id);
-  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
