@@ -12,30 +12,23 @@ import ProductProvider, { ProductContext } from "../../data/products";
 import Loader from "../../components/loader/Loader";
 import Messenger from "../../components/messenger/Messenger";
 import AuthModal from "../../modal/authmodal/AuthModal";
-
+import { Outlet } from "react-router-dom";
 const Home = () => {
-  const [modalActive, setModalActive] = useState(false);
-  const location = useLocation();
-  const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
+  // const [modalActive, setModalActive] = useState(false);
 
-  setTimeout(() => setLoading(false), 1000);
+  // const [open, setOpen] = useState(false);
+  // const [loading, setLoading] = useState(true);
+
+  // setTimeout(() => setLoading(false), 1000);
 
   // console.log(location.pathname);
   return (
     <>
       <ProductProvider>
-        <Header />
-        <Secondheader setModalActive={setModalActive} />
-
         <Catalog />
-        {/* <Card setOpen={setOpen} /> */}
 
-        <Footer />
-        <AuthModal modalActive={modalActive} setModalActive={setModalActive} />
-        <BuyProductModal open={open} setOpen={setOpen} />
-        {loading && <Loader />}
-        <Messenger />
+        <BuyProductModal />
+        {/* {loading && <Loader />} */}
       </ProductProvider>
     </>
   );

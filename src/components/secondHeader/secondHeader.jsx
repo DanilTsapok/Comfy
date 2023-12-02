@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../colors.scss";
 import "./secondheader-style.scss";
 import blockchain from "../../assets/png/icons8-apps-48.png";
@@ -8,8 +8,11 @@ import heart from "../../assets/png/icons8-heart-24.png";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../data/AuthProvider";
 
-export default function Secondheader({ setModalActive }) {
+export default function Secondheader() {
+  const auth = useContext(AuthContext);
+  console.log(auth);
   return (
     <>
       <div className="second-header">
@@ -32,9 +35,9 @@ export default function Secondheader({ setModalActive }) {
             </div>
             <div className="second-header-items">
               <div className="second-header-login ">
-                <Link to="/" onClick={() => setModalActive(true)}>
+                <button to="/" onClick={() => auth.toggleAuth()}>
                   Увійти
-                </Link>
+                </button>
               </div>
               <div className="second-header-like ">
                 <img src={heart} alt="" />

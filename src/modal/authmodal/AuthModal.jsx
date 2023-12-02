@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import "./authmodal-style.scss";
 import authLogo from "./../../assets/authicon/log-ll_4.svg";
 import CloseIcon from "@mui/icons-material/Close";
 import { Button } from "antd";
-export default function AuthModal({ modalActive, setModalActive }) {
+import { AuthContext } from "../../data/AuthProvider";
+
+export default function AuthModal() {
+  const auth = useContext(AuthContext);
+  console.log(auth, "fdsg");
   const [submit, setSubmiting] = useState(true);
   return (
     <div
-      className={modalActive ? "authmodal authactive" : "authmodal"}
-      onClick={() => setModalActive(false)}
+      className={auth.auth ? "authmodal authactive" : "authmodal"}
+      onClick={() => auth.toggleAuth()}
     >
       <div
-        className={
-          modalActive ? "authmodal-body modalactive" : "authmodal-body"
-        }
+        className={auth.auth ? "authmodal-body modalactive" : "authmodal-body"}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="authmodal-body-left-side">
@@ -24,7 +26,8 @@ export default function AuthModal({ modalActive, setModalActive }) {
           <div className="authmodal-close">
             <CloseIcon
               onClick={() => {
-                setModalActive(false), setSubmiting(true);
+                auth.toggleAuth();
+                setSubmiting(true);
               }}
               fontSize="middle"
               style={{ cursor: "pointer" }}

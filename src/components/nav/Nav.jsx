@@ -1,18 +1,11 @@
 import React from "react";
 import "./nav-style.scss";
 import { Link, useLocation } from "react-router-dom";
+import Breadcrumb from "../location/Breadcrumb";
 export default function Nav({ product }) {
-  const location = useLocation();
-  const pathSegments = location.pathname
-    .split("/")
-    .filter((segment) => segment !== "");
   return (
     <>
-      <div className="path">
-        <div className="nav-path">
-          Головна{pathSegments.length > 0 && " > " + pathSegments.join(" > ")}
-        </div>
-      </div>
+      <Breadcrumb />
       <div className="navigation ">
         <div className="nav-items ">
           <Link to={`/${product.id}`} className={`nav-item `}>

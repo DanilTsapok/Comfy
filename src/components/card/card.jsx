@@ -28,7 +28,7 @@ const Card = ({ setOpen }) => {
   }, []);
 
   const location = useLocation();
-
+  console.log(location.pathname);
   const formatter = (value) => <CountUp end={value} separator="," />;
   return (
     <div className="cards-container cssanimation blurInRight">

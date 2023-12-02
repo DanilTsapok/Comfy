@@ -102,11 +102,13 @@
     .second-header-login{
         display: flex;
         align-items: center;
-        a{
+        button{
             color: $color-white;
             text-decoration: none;
             background-color:  $color-middle-green;
             padding: 8px 10px;
+            outline: none;
+            border: none;
             border-radius:0.4rem ;
             &:hover{
                 background-color: $color-dark-green;

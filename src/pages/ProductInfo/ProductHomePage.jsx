@@ -7,20 +7,20 @@ import ProductMain from "./components/ProductMain/ProductMain";
 import ProductProvider, { ProductContext } from "../../data/products";
 
 const ProductHomePage = () => {
+  const { product } = useParams();
   const { products } = useContext(ProductContext);
-  const { id } = useParams();
-  const selectProduct = products.find((product) => product.id == id);
-
+  const currentProduct = useLocation();
+  console.log(currentProduct);
+  // const selectProduct = products.find((product) => product.id == id);
+  const location = useLocation(0);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <>
       <ProductProvider>
-        <Header />
-        <Secondheader />
-        <ProductMain product={selectProduct} />
-        <Footer />
+        <p>{location.path}</p>
+        {/* <ProductMain product={selectProduct} /> */}
       </ProductProvider>
     </>
   );

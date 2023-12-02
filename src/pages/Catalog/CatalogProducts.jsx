@@ -1,37 +1,52 @@
 import React, { useContext } from "react";
 import Header from "../../components/firstHeader/Header";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import Secondheader from "../../components/secondHeader/secondHeader";
 import Footer from "../../components/Footer/Footer";
 import { ProductContext } from "../../data/products";
-
+import styles from "./catalogProducts-style.module.scss";
+import Breadcrumb from "../../components/location/Breadcrumb";
 function CatalogProducts() {
   const { category } = useParams();
   const { products } = useContext(ProductContext);
   const dataCategory = products[category];
-  console.log(dataCategory);
-  const location = useLocation();
-  const pathSegments = location.pathname
-    .split("/")
-    .filter((segment) => segment !== "");
+
+  const productsCategory = dataCategory.productsCategory;
+
   return (
     <>
-      <Header />
-      <Secondheader />
-      <div className="path">
-        <div className="nav-path">
-          Головна{pathSegments.length > 0 && " > " + pathSegments.join(" > ")}
+      <Breadcrumb />
+      <div className={styles.catalogContainer}>
+        <div className={styles.catalogItems}>
+          {Object.keys(productsCategory).map((subcategory) => (
+            <div key={subcategory} className={styles.catalogItem}>
+              <div className={styles.catalogHeader}>
+                <img
+                  src={productsCategory[subcategory].image}
+                  className={styles.catalogImg}
+                />
+                <p>{productsCategory[subcategory].nameCategory}</p>
+              </div>
+              <p
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textDecoration: "none",
+                }}
+              >
+                {productsCategory[subcategory].devices.map((item) => (
+                  <Link
+                    to={`/catalog/${category}/${productsCategory[subcategory].nameCategory}/${item.id}`}
+                    className={styles.catalogDevice}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
-
-      {Object.keys(dataCategory).map((subcategory) => (
-        <div>
-          <p>{dataCategory[subcategory].nameCategory}</p>
-          <p>{dataCategory[subcategory].image}img</p>
-        </div>
-      ))}
-
-      <Footer />
     </>
   );
 }
