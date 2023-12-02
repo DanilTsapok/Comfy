@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import catalog from "../../data/catalog";
+import React, { useContext, useRef } from "react";
+// import catalog from "../../data/catalog";
 import "./catalog-style.scss";
 import "./../../colors.scss";
 import { useState } from "react";
@@ -17,31 +17,42 @@ import appleLogo from "./../../assets/png/Apple_logo-main.png";
 import xiaomiLogo from "./../../assets/png/1200x628.png";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import { Tooltip } from "antd";
+import { Link } from "react-router-dom";
+import { ProductContext } from "../../data/products";
 
 const Catalog = () => {
   const [isHovered, setHover] = useState(false);
-
   const imgArray = [img1, img2, img3, img4];
-
+  const { products } = useContext(ProductContext);
   return (
     <div className="catalog ">
       <div className="catalog-container">
         <div className="catalog-wrapper">
           <div className="catalog-left-side ">
-            {catalog.map((element, index) => (
-              <div className="catalog-items " key={index}>
-                <Tooltip placement="bottom" title={element.item} color="green">
+            {Object.keys(products).map((category) => (
+              <div className="catalog-items " key={category}>
+                <Tooltip
+                  placement="bottom"
+                  title={products[category].categoryName}
+                  color="green"
+                >
                   <a
                     href=""
                     onMouseEnter={() => setHover(false)}
                     onMouseLeave={() => setHover(false)}
                   >
                     <div className="link ">
-                      <img src={element.icon} className="catalog-icon" alt="" />
-                      <p>{element.item}</p>
+                      <img
+                        src={products[category].icon}
+                        className="catalog-icon"
+                        alt=""
+                      />
+                      <Link to={`/catalog/${category}`} className="linkItem">
+                        {products[category].categoryName}
+                      </Link>
                     </div>
                     <div>
-                      {element.list ? (
+                      {products[category].list ? (
                         <ArrowForwardIosOutlinedIcon
                           style={{
                             fontSize: "13px",
@@ -60,23 +71,6 @@ const Catalog = () => {
           </div>
         </div>
 
-        <div
-          className={
-            isHovered
-              ? "catalog-categories-items anim"
-              : "catalog-categories-items "
-          }
-        >
-          {catalog.map((element, index) => {
-            return (
-              <div key={index}>
-                <p className={isHovered ? "anim1" : ""}>
-                  {element.categories.name}
-                </p>
-              </div>
-            );
-          })}
-        </div>
         <div
           className={
             isHovered ? "catalog-right-side active" : "catalog-right-side "
@@ -144,8 +138,8 @@ const Catalog = () => {
             <div className="header-delimiter"></div>
             <div className="right-side-brand">
               <div className="brand-all">
-                <p>Всі бренди</p>
-                <p>+</p>
+                <p style={{ margin: 0 }}>Всі бренди</p>
+                <p style={{ margin: 0 }}>+</p>
               </div>
             </div>
           </div>

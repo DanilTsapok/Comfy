@@ -4,7 +4,7 @@ import { Box, Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 function Comment({ comment, selectProduct }) {
   const [currentDate, setCurrentDate] = useState("");
-  console.log(currentDate);
+
   useEffect(() => {
     const getCurrentDate = () => {
       const today = new Date();

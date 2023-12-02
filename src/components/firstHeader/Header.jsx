@@ -70,7 +70,7 @@ export default function Header() {
               <div className="header-change-lang">
                 <a href="">УКР</a>
                 <a href="">РУС</a>
-                <Link to="/admin">Кабінет адміна</Link>
+                <Link to="/admin">admin</Link>
               </div>
             </div>
           </div>

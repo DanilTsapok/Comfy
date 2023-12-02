@@ -19,7 +19,7 @@ export default function Secondheader({ setModalActive }) {
               <div className="catalog">
                 <div className="catalog-header">
                   <img src={blockchain} alt="" className="first-icon " />
-                  <p className="">Каталог товарів</p>
+                  <p style={{ margin: 0 }}>Каталог товарів</p>
                 </div>
                 <div className="catalog-header-icon">
                   <img src={arrow} alt="" className="second-icon" />
@@ -41,7 +41,7 @@ export default function Secondheader({ setModalActive }) {
               </div>
               <div className="second-header-basket ">
                 <LiaShoppingCartSolid size={26} color="white" />
-                <p>Кошик </p>
+                <p style={{ margin: 0 }}>Кошик </p>
               </div>
             </div>
           </div>

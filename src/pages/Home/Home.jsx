@@ -21,7 +21,7 @@ const Home = () => {
 
   setTimeout(() => setLoading(false), 1000);
 
-  console.log(location.pathname);
+  // console.log(location.pathname);
   return (
     <>
       <ProductProvider>
@@ -29,7 +29,8 @@ const Home = () => {
         <Secondheader setModalActive={setModalActive} />
 
         <Catalog />
-        <Card setOpen={setOpen} />
+        {/* <Card setOpen={setOpen} /> */}
+
         <Footer />
         <AuthModal modalActive={modalActive} setModalActive={setModalActive} />
         <BuyProductModal open={open} setOpen={setOpen} />

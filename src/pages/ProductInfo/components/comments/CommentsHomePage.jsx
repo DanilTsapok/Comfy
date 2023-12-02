@@ -19,7 +19,6 @@ export default function CommentsHomePage() {
   const [MakeCommentsActive, setMakeCommentsActive] = useState(false);
   const [comments, setComments] = useState([]);
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <>

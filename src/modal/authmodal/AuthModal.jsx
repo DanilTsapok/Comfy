@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import "./authmodal-style.scss";
 import authLogo from "./../../assets/authicon/log-ll_4.svg";
 import CloseIcon from "@mui/icons-material/Close";
+import { Button } from "antd";
 export default function AuthModal({ modalActive, setModalActive }) {
+  const [submit, setSubmiting] = useState(true);
   return (
     <div
       className={modalActive ? "authmodal authactive" : "authmodal"}
@@ -21,7 +23,9 @@ export default function AuthModal({ modalActive, setModalActive }) {
         <div className="authmodal-body-right-side">
           <div className="authmodal-close">
             <CloseIcon
-              onClick={() => setModalActive(false)}
+              onClick={() => {
+                setModalActive(false), setSubmiting(true);
+              }}
               fontSize="middle"
               style={{ cursor: "pointer" }}
             />
@@ -39,8 +43,19 @@ export default function AuthModal({ modalActive, setModalActive }) {
               <div className="input-number">
                 <input placeholder="Password" required />
               </div>
+              {submit && (
+                <input type="submit" onClick={() => setSubmiting(false)} />
+              )}
 
-              <input type="submit" value="Увійти" />
+              {!submit && (
+                <Button
+                  type="primary"
+                  loading
+                  style={{ backgroundColor: "green" }}
+                >
+                  Loading
+                </Button>
+              )}
               <div className="about">
                 <hr />
                 <span>Або</span>

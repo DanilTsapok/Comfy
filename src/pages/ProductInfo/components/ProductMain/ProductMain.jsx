@@ -33,7 +33,7 @@ const ProductMain = ({ product }) => {
             </div>
             <div className="right-gallery-img">
               <Image.PreviewGroup>
-                <Image width={500} src={product.img} />
+                <Image src={product.img} />
               </Image.PreviewGroup>
             </div>
           </section>

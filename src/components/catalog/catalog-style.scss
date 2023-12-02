@@ -7,13 +7,14 @@
     .catalog-container{
         width: 72%;
         display: flex;
-        align-items: center;
-        margin-bottom: 20px;
+        height: 620px;
+        
         .catalog-wrapper{
             width: 346px;
-            height: 602px;
+            height: 100%;
             padding: 8px;
             background-color: #fff;
+            
         }
         .catalog-categories-items{
            background-color: #fff;
@@ -48,7 +49,7 @@
             align-items: center;
         }
        
-        p{
+        .linkItem{
             flex-wrap: wrap;
             margin: 0px 0px 0px 15px;
             &:hover{
@@ -148,7 +149,7 @@
         .slider-slide-wrap {
      
              display: flex;
-             height: 100%;
+             
              width: max-content;
          }
          .slider-slide{

@@ -11,7 +11,7 @@ function useHover(ref) {
     }
 
     const node = ref.current;
-    console.log(node);
+
     node.addEventListener("mouseenter", on);
     node.removeEventListener("mousemove", on);
     node.addEventListener("mouseleave", off);
