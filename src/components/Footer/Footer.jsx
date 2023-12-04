@@ -2,12 +2,13 @@ import React from "react";
 import footerData from "../../data/footerData";
 import "./footer-styles.scss";
 import QR from "./../../assets/catalog-icons/f_auto.svg";
-
 import instagram from "./../../assets/footer-icon/icons8-instagram.svg";
 import facebook from "./../../assets/footer-icon/icons8-facebook.svg";
 import youtube from "./../../assets/footer-icon/icons8-youtube.svg";
 import telegram from "./../../assets/footer-icon/telegram_icon_136124.svg";
+// import useLocationPath from "../../hooks/useLocationPath";
 const Footer = () => {
+  //   const path = useLocationPath();
   return (
     <>
       <footer>
@@ -52,7 +53,7 @@ const Footer = () => {
                   <input
                     type="submit"
                     className="submitBtn
-                "
+                     "
                     value={"Відправити"}
                   />
                 </div>

@@ -1,11 +1,10 @@
 import React from "react";
 import "./nav-style.scss";
 import { Link, useLocation } from "react-router-dom";
-import Breadcrumb from "../location/Breadcrumb";
+
 export default function Nav({ product }) {
   return (
     <>
-      <Breadcrumb />
       <div className="navigation ">
         <div className="nav-items ">
           <Link to={`/${product.id}`} className={`nav-item `}>

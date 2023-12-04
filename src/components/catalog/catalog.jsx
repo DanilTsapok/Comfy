@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-// import catalog from "../../data/catalog";
+// // import catalog from "../../data/catalog";
 import "./catalog-style.scss";
 import "./../../colors.scss";
 import { useState } from "react";
@@ -70,7 +70,6 @@ const Catalog = () => {
             ))}
           </div>
         </div>
-
         <div
           className={
             isHovered ? "catalog-right-side active" : "catalog-right-side "

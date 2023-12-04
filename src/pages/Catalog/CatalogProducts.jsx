@@ -1,21 +1,20 @@
 import React, { useContext } from "react";
-import Header from "../../components/firstHeader/Header";
+
 import { Link, useLocation, useParams } from "react-router-dom";
-import Secondheader from "../../components/secondHeader/secondHeader";
-import Footer from "../../components/Footer/Footer";
+
 import { ProductContext } from "../../data/products";
 import styles from "./catalogProducts-style.module.scss";
-import Breadcrumb from "../../components/location/Breadcrumb";
+
 function CatalogProducts() {
   const { category } = useParams();
   const { products } = useContext(ProductContext);
+
   const dataCategory = products[category];
-
+  console.log(dataCategory);
   const productsCategory = dataCategory.productsCategory;
-
+  console.log(productsCategory);
   return (
     <>
-      <Breadcrumb />
       <div className={styles.catalogContainer}>
         <div className={styles.catalogItems}>
           {Object.keys(productsCategory).map((subcategory) => (
@@ -34,9 +33,10 @@ function CatalogProducts() {
                   textDecoration: "none",
                 }}
               >
-                {productsCategory[subcategory].devices.map((item) => (
+                {productsCategory[subcategory].devices.map((item, index) => (
                   <Link
-                    to={`/catalog/${category}/${productsCategory[subcategory].nameCategory}/${item.id}`}
+                    key={index}
+                    to={`/catalog/${category}/${subcategory}/${item.id}`}
                     className={styles.catalogDevice}
                   >
                     {item.name}

@@ -1,18 +1,17 @@
 import React, { useContext, useState } from "react";
 import "../../colors.scss";
-import "./secondheader-style.scss";
+import "./DownHeader-style.scss";
 import blockchain from "../../assets/png/icons8-apps-48.png";
 import arrow from "../../assets/png/icons8-expand-arrow-30.png";
 import loop from "../../assets/png/icons8-search-48.png";
 import heart from "../../assets/png/icons8-heart-24.png";
-import { ShoppingCartOutlined } from "@ant-design/icons";
 import { LiaShoppingCartSolid } from "react-icons/lia";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { AuthContext } from "../../data/AuthProvider";
 
-export default function Secondheader() {
+export default function DownHeader() {
   const auth = useContext(AuthContext);
-  console.log(auth);
+  console.log(auth.currentUser);
   return (
     <>
       <div className="second-header">
@@ -35,10 +34,14 @@ export default function Secondheader() {
             </div>
             <div className="second-header-items">
               <div className="second-header-login ">
-                <button to="/" onClick={() => auth.toggleAuth()}>
-                  Увійти
-                </button>
+                {auth.auth ? (
+                  <p></p>
+                ) : (
+                  // <img src={auth.currentUser.photoURL} alt="User Avatar" />
+                  <button onClick={() => auth.toggleAuth()}>Увійти</button>
+                )}
               </div>
+
               <div className="second-header-like ">
                 <img src={heart} alt="" />
               </div>

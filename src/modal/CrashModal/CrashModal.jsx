@@ -1,19 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import { Container, Button, Alert } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./cityModal.module.css";
-function CityModal() {
+import "./CrashModal-style.css";
+
+function CrashModal() {
   const [showButton, setShowButton] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
   const nodeRef = useRef(null);
   return (
-    <Container style={{ paddingTop: "2rem" }}>
+    <Container style={{ paddingRight: "2rem" }}>
       {showButton && (
-        <Button onClick={() => setShowMessage(true)} size="lg">
-          Show Message
-        </Button>
+        <Button onClick={() => setShowMessage(true)}>Детальніше</Button>
       )}
       <CSSTransition
         in={showMessage}
@@ -30,14 +29,15 @@ function CityModal() {
           dismissible
           onClose={() => setShowMessage(false)}
         >
-          <Alert.Heading>Animated alert message</Alert.Heading>
-          <p>This alert message is being transitioned in and out of the DOM.</p>
-          <Button variant="primary" onClick={() => setShowMessage(false)}>
-            Close
-          </Button>
+          <Alert.Heading>Кращ</Alert.Heading>
+          <p>
+            Цей товар — топ за свої гроші, адже поєднує в собі все найкраще:
+            якість, бренд, характеристики та співвідношення до ціни.{" "}
+          </p>
         </Alert>
       </CSSTransition>
     </Container>
   );
 }
-export default CityModal;
+
+export default CrashModal;

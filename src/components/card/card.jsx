@@ -10,18 +10,19 @@ import StarIcon from "@mui/icons-material/Star";
 import useHover from "../../hooks/useHover";
 
 import { LiaShoppingCartSolid } from "react-icons/lia";
-import RegisterModal from "../../modal/RegisterModal.jsx/RegisterModal";
+import CrashModal from "../../modal/CrashModal/CrashModal";
 import { Col, Image, Row, Statistic } from "antd";
 import CountUp from "react-countup";
-const Card = ({ setOpen }) => {
-  const { products, setProducts } = useContext(ProductContext);
+import { ProductContextTest } from "../../data/testproducts";
+const Card = () => {
+  const { products, setProducts } = useContext(ProductContextTest);
 
-  const handleButtonClick = (index) => {
-    const updatedData = [...products];
-    updatedData[index].checked = !updatedData[index].checked;
-    setProducts(updatedData);
-    setOpen(true);
-  };
+  // const handleButtonClick = (index) => {
+  //   const updatedData = [...products];
+  //   updatedData[index].checked = !updatedData[index].checked;
+  //   setProducts(updatedData);
+
+  // };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,7 +35,7 @@ const Card = ({ setOpen }) => {
     <div className="cards-container cssanimation blurInRight">
       <div className="cards-header">
         <h1>Кращ</h1>
-        <RegisterModal />
+        <CrashModal />
       </div>
       <div className="cards-body">
         <div className="cards">

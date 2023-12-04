@@ -19,11 +19,18 @@ const ProductState = {
         image: "https://cdn.comfy.ua/media/catalog/category/file_1408.png",
         devices: [
           {
-            id: 1,
-            name: " iPhone 15 Pro Max ",
-            price: 123141,
-            image: "",
+            id: 12411,
+            name: "Смартфон Apple iPhone 14 Pro Max 128Gb Space Black",
+            price: 29413,
             checked: false,
+            img: "../../src/assets/png/w_601.avif",
+            category: "Phones",
+            numOfComments: 213,
+            question: 123,
+            oldPrice: 123,
+            rating: 2,
+            details:
+              "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
           },
           {
             id: 2,

@@ -1,5 +1,5 @@
 import React from "react";
-import "./firstheader-style.scss";
+import "./UpHeader-style.scss";
 import "../../colors.scss";
 import logo from "../../assets/catalog-icons/logo_main.svg";
 import phone from "../../assets/catalog-icons/phone_icon_136322.svg";
@@ -7,7 +7,7 @@ import { DownOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Popover } from "antd";
 
-export default function Header() {
+export default function UpHeader() {
   return (
     <>
       <header>
@@ -20,12 +20,7 @@ export default function Header() {
                 </Link>
               </div>
               <div className="header-city-menu">
-                <a href="#">
-                  Миколаїв
-                  {/* <DownOutline
-                    style={{ fontSize: "10px", marginLeft: 8, marginRight: 3 }}
-                  /> */}
-                </a>
+                <a href="#">Миколаїв</a>
               </div>
             </div>
             <div className="header-right-side ">
@@ -42,12 +37,18 @@ export default function Header() {
               </div>
               <div className="header-delimiter"></div>
               <div className="header-something">
-                <a href="">
-                  Ще
-                  <DownOutlined
-                    style={{ fontSize: "10px", marginLeft: 8, marginRight: 3 }}
-                  />
-                </a>
+                <Popover placement="bottom" title={"акції"}>
+                  <a href="">
+                    Ще
+                    <DownOutlined
+                      style={{
+                        fontSize: "10px",
+                        marginLeft: 8,
+                        marginRight: 3,
+                      }}
+                    />
+                  </a>
+                </Popover>
               </div>
               <div className="header-delimiter"></div>
               <div className="header-help">

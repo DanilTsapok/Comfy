@@ -3,13 +3,70 @@ import { FcGoogle } from "react-icons/fc";
 import "./authmodal-style.scss";
 import authLogo from "./../../assets/authicon/log-ll_4.svg";
 import CloseIcon from "@mui/icons-material/Close";
-import { Button } from "antd";
 import { AuthContext } from "../../data/AuthProvider";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { firebaseAuth, googleProvider } from "../../firebase/firebase";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { Button } from "antd";
 
 export default function AuthModal() {
   const auth = useContext(AuthContext);
-  console.log(auth, "fdsg");
-  const [submit, setSubmiting] = useState(true);
+  const [submit, setSubmitting] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Введіть пошту"),
+      password: Yup.string()
+        .matches(
+          /[A-Z]/,
+          "В паролі має бути обов'язково хоча б 1 велика літера"
+        )
+        .matches(/[^a-zA-Z]/, "В паролі має бути хоча б 1 цифра")
+        .min(8, "Мінімальна кількість символів 8")
+        .required("Введіть пароль"),
+    }),
+    onSubmit: async (values) => {
+      try {
+        setLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await signInWithEmailAndPassword(
+          firebaseAuth,
+          values.email,
+          values.password
+        );
+        setLoading(false);
+        onAuthStateChanged(firebaseAuth, (user) => {
+          if (user) {
+            auth.setCurrentUser(user);
+            auth.toggleAuth();
+          }
+        });
+      } catch (e) {}
+    },
+  });
+  const singUpWithGoogle = async () => {
+    try {
+      await signInWithPopup(firebaseAuth, googleProvider);
+      onAuthStateChanged(firebaseAuth, (user) => {
+        if (user) {
+          auth.setCurrentUser(user);
+          auth.toggleAuth();
+        }
+      });
+    } catch (e) {}
+  };
   return (
     <div
       className={auth.auth ? "authmodal authactive" : "authmodal"}
@@ -27,7 +84,7 @@ export default function AuthModal() {
             <CloseIcon
               onClick={() => {
                 auth.toggleAuth();
-                setSubmiting(true);
+                setSubmitting(true);
               }}
               fontSize="middle"
               style={{ cursor: "pointer" }}
@@ -37,40 +94,80 @@ export default function AuthModal() {
             <h1>Вхід</h1>
           </div>
           <div className="user-info">
-            <form method="post">
+            <form method="post" onSubmit={formik.handleSubmit}>
               <p>Email</p>
               <div className="input-number">
-                <input placeholder="Email" required />
+                <input
+                  placeholder="Email"
+                  name="email"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <p
+                    style={{
+                      color: "red",
+                      fontSize: 14,
+                      position: "relative",
+                      top: -10,
+                    }}
+                  >
+                    {formik.errors.email}
+                  </p>
+                ) : null}
               </div>
               <p>Password</p>
               <div className="input-number">
-                <input placeholder="Password" required />
+                <input
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                />
+                {formik.touched.password && formik.errors.password ? (
+                  <p
+                    style={{
+                      color: "red",
+                      fontSize: 14,
+                      position: "relative",
+                      top: -10,
+                    }}
+                  >
+                    {formik.errors.password}
+                  </p>
+                ) : null}
               </div>
-              {submit && (
-                <input type="submit" onClick={() => setSubmiting(false)} />
-              )}
-
-              {!submit && (
+              {loading ? (
                 <Button
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundColor: "green",
+                  }}
                   type="primary"
                   loading
-                  style={{ backgroundColor: "green" }}
                 >
                   Loading
                 </Button>
+              ) : (
+                <Button htmlType="submit">Login</Button>
               )}
+
               <div className="about">
                 <hr />
                 <span>Або</span>
                 <hr />
               </div>
-              <div className="google-account">
-                <a href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?redirect_uri=storagerelay%3A%2F%2Fhttps%2Fcomfy.ua%3Fid%3Dauth611409&response_type=permission%20id_token&scope=email%20profile%20openid&openid.realm&include_granted_scopes=true&client_id=1058493733503-89b5ap5gm4a5sr3lcc5351gq7414494i.apps.googleusercontent.com&ss_domain=https%3A%2F%2Fcomfy.ua&fetch_basic_profile=true&gsiwebsdk=2&service=lso&o2v=1&theme=glif&flowName=GeneralOAuthFlow">
-                  <FcGoogle className="google-icon" />
-                  <div className="link-text">Google</div>
-                </a>
-              </div>
             </form>
+            <div className="google-account">
+              <button onClick={singUpWithGoogle}>
+                <FcGoogle className="google-icon" />
+                <div className="link-text">Google</div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
