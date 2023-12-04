@@ -7,7 +7,7 @@ export default function Nav({ product }) {
     <>
       <div className="navigation ">
         <div className="nav-items ">
-          <Link to={`/${product.id}`} className={`nav-item `}>
+          <Link to={`/`} className={`nav-item `}>
             Все про товар
           </Link>
           <div className="nav-delimiter"></div>

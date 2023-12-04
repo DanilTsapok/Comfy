@@ -11,6 +11,7 @@ import CountUp from "react-countup";
 
 const ProductMain = ({ product }) => {
   const formatter = (value) => <CountUp end={value} separator="," />;
+
   return (
     <>
       <Nav product={product} />
@@ -39,7 +40,7 @@ const ProductMain = ({ product }) => {
           </section>
           <section className="product-preview-right-side">
             <div className="info-main">
-              <h1 className="title-of-product">{product.name}</h1>
+              <h1 className="title-of-product">{product.subname}</h1>
               <div className="info-main-labels">
                 <a href="">
                   <img src={crash} alt="" />

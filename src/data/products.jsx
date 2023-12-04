@@ -20,11 +20,11 @@ const ProductState = {
         devices: [
           {
             id: 12411,
-            name: "Смартфон Apple iPhone 14 Pro Max 128Gb Space Black",
-            price: 29413,
+            name: "iPhone 15 Pro Max",
+            subname: "Смартфон Apple iPhone 15 Pro Max 256Gb Natural Titanium",
+            price: 63499,
             checked: false,
-            img: "../../src/assets/png/w_601.avif",
-            category: "Phones",
+            img: "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en_1_.jpg/w_600",
             numOfComments: 213,
             question: 123,
             oldPrice: 123,
@@ -33,11 +33,18 @@ const ProductState = {
               "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
           },
           {
-            id: 2,
-            name: " iPhone 15 Pro  ",
-            price: 123141,
-            image: "",
+            id: 1241,
+            name: "iPhone 15 Pro ",
+            subname: "Смартфон Apple iPhone 15 Pro 128Gb Blue Titanium",
+            price: 63499,
             checked: false,
+            img: "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_blue_titanium_pdp_image_position-1__ww-en.jpg/w_600",
+            numOfComments: 213,
+            question: 123,
+            oldPrice: 123,
+            rating: 2,
+            details:
+              "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
           },
           {
             id: 3,

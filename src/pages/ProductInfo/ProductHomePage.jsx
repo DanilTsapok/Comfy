@@ -11,7 +11,7 @@ const ProductHomePage = () => {
   const selectProduct = test[nameCategory].devices.find(
     (item) => item.id == id
   );
-  console.log(selectProduct);
+
   //   console.log(Object.keys(test).find((item) => item == nameCategory));
   //   const selectProduct = products[category]?.productsCategory[
   //     nameCategory
