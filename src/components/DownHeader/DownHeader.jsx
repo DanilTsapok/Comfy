@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../colors.scss";
 import "./DownHeader-style.scss";
 import blockchain from "../../assets/png/icons8-apps-48.png";
@@ -8,10 +8,26 @@ import heart from "../../assets/png/icons8-heart-24.png";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 // import { Link } from "react-router-dom";
 import { AuthContext } from "../../data/AuthProvider";
-
+// import useLocalStorage from "../../hooks/useLocalStorage";
+import { firebaseAuth } from "../../firebase/firebase";
+import { Link } from "react-router-dom";
 export default function DownHeader() {
   const auth = useContext(AuthContext);
   console.log(auth.currentUser);
+
+  // const [user, setUser] = useLocalStorage(false, "user");
+  const [, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = firebaseAuth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const removeCurrentUser = async () => {
+    await firebaseAuth.signOut();
+  };
   return (
     <>
       <div className="second-header">
@@ -34,10 +50,9 @@ export default function DownHeader() {
             </div>
             <div className="second-header-items">
               <div className="second-header-login ">
-                {auth.auth ? (
-                  <p></p>
+                {firebaseAuth.currentUser ? (
+                  <button onClick={() => removeCurrentUser()}>Выйти</button>
                 ) : (
-                  // <img src={auth.currentUser.photoURL} alt="User Avatar" />
                   <button onClick={() => auth.toggleAuth()}>Увійти</button>
                 )}
               </div>
@@ -47,7 +62,11 @@ export default function DownHeader() {
               </div>
               <div className="second-header-basket ">
                 <LiaShoppingCartSolid size={26} color="white" />
-                <p style={{ margin: 0 }}>Кошик </p>
+                <p style={{ margin: 0 }}>
+                  <Link to="/cart">
+                    Кошик <span>1</span>{" "}
+                  </Link>
+                </p>
               </div>
             </div>
           </div>

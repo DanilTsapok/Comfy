@@ -12,6 +12,7 @@ const Footer = () => {
   return (
     <>
       <footer>
+        Breadcrumb
         <div className="footer-box">
           <div className="footer-upper-box">
             <div className="box-items">

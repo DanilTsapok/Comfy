@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import "./authmodal-style.scss";
 import authLogo from "./../../assets/authicon/log-ll_4.svg";
@@ -49,6 +49,7 @@ export default function AuthModal() {
         setLoading(false);
         onAuthStateChanged(firebaseAuth, (user) => {
           if (user) {
+            localStorage.setItem("user", JSON.stringify(user));
             auth.setCurrentUser(user);
             auth.toggleAuth();
           }
@@ -56,11 +57,14 @@ export default function AuthModal() {
       } catch (e) {}
     },
   });
+
   const singUpWithGoogle = async () => {
     try {
       await signInWithPopup(firebaseAuth, googleProvider);
       onAuthStateChanged(firebaseAuth, (user) => {
         if (user) {
+          localStorage.setItem("user", JSON.stringify(user));
+
           auth.setCurrentUser(user);
           auth.toggleAuth();
         }

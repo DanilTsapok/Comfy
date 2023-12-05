@@ -3,6 +3,9 @@ import React, { useContext, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import ProductMain from "./components/ProductMain/ProductMain";
 import ProductProvider, { ProductContext } from "../../data/products";
+import Breadcrumb from "../../components/location/Breadcrumb";
+
+// import { store } from "../../redux/store";
 
 const ProductHomePage = () => {
   const { category, nameCategory, id } = useParams();
@@ -17,14 +20,13 @@ const ProductHomePage = () => {
   //     nameCategory
   //   ]?.devices.find((item) => item.id === id);
 
-  const location = useLocation(0);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <>
       <ProductProvider>
-        <p>{location.pathname}</p>
+        <Breadcrumb />
         <ProductMain product={selectProduct} />
       </ProductProvider>
     </>

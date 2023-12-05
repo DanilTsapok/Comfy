@@ -4,10 +4,13 @@ import { Link, useLocation, useParams } from "react-router-dom";
 
 import { ProductContext } from "../../data/products";
 import styles from "./catalogProducts-style.module.scss";
+import Breadcrumb from "../../components/location/Breadcrumb";
+import useProducts from "../../store/Products/productsSlice";
 
 function CatalogProducts() {
   const { category } = useParams();
-  const { products } = useContext(ProductContext);
+  // const { products } = useContext(ProductContext);
+  const { products } = useProducts();
 
   const dataCategory = products[category];
   console.log(dataCategory);
@@ -15,6 +18,7 @@ function CatalogProducts() {
   console.log(productsCategory);
   return (
     <>
+      <Breadcrumb />
       <div className={styles.catalogContainer}>
         <div className={styles.catalogItems}>
           {Object.keys(productsCategory).map((subcategory) => (

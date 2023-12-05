@@ -14,15 +14,10 @@ import CrashModal from "../../modal/CrashModal/CrashModal";
 import { Col, Image, Row, Statistic } from "antd";
 import CountUp from "react-countup";
 import { ProductContextTest } from "../../data/testproducts";
+import useProducts from "../../store/Products/productsSlice";
 const Card = () => {
-  const { products, setProducts } = useContext(ProductContextTest);
-
-  // const handleButtonClick = (index) => {
-  //   const updatedData = [...products];
-  //   updatedData[index].checked = !updatedData[index].checked;
-  //   setProducts(updatedData);
-
-  // };
+  // const { products, setProducts } = useContext(ProductContextTest);
+  const { productsCarts, setProductsCarts } = useProducts();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,7 +34,7 @@ const Card = () => {
       </div>
       <div className="cards-body">
         <div className="cards">
-          {products.map((element, index) => {
+          {productsCarts.map((element, index) => {
             const ref = useRef();
             const isHovering = useHover(ref);
             return (

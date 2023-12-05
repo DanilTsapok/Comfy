@@ -19,11 +19,13 @@ import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutl
 import { Tooltip } from "antd";
 import { Link } from "react-router-dom";
 import { ProductContext } from "../../data/products";
+import useProducts from "../../store/Products/productsSlice";
 
 const Catalog = () => {
   const [isHovered, setHover] = useState(false);
   const imgArray = [img1, img2, img3, img4];
-  const { products } = useContext(ProductContext);
+  const { products } = useProducts();
+  // const { products } = useContext(ProductContext);
   return (
     <div className="catalog ">
       <div className="catalog-container">
