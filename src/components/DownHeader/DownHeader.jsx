@@ -27,6 +27,7 @@ export default function DownHeader() {
 
   const removeCurrentUser = async () => {
     await firebaseAuth.signOut();
+    localStorage.removeItem("user");
   };
   return (
     <>
@@ -50,7 +51,7 @@ export default function DownHeader() {
             </div>
             <div className="second-header-items">
               <div className="second-header-login ">
-                {firebaseAuth.currentUser ? (
+                {firebaseAuth.currentUser && localStorage.getItem("user") ? (
                   <button onClick={() => removeCurrentUser()}>Выйти</button>
                 ) : (
                   <button onClick={() => auth.toggleAuth()}>Увійти</button>
@@ -63,7 +64,7 @@ export default function DownHeader() {
               <div className="second-header-basket ">
                 <LiaShoppingCartSolid size={26} color="white" />
                 <p style={{ margin: 0 }}>
-                  <Link to="/cart">
+                  <Link to="/cart" className="cart">
                     Кошик <span>1</span>{" "}
                   </Link>
                 </p>

@@ -6,13 +6,11 @@ import instagram from "./../../assets/footer-icon/icons8-instagram.svg";
 import facebook from "./../../assets/footer-icon/icons8-facebook.svg";
 import youtube from "./../../assets/footer-icon/icons8-youtube.svg";
 import telegram from "./../../assets/footer-icon/telegram_icon_136124.svg";
-// import useLocationPath from "../../hooks/useLocationPath";
+
 const Footer = () => {
-  //   const path = useLocationPath();
   return (
     <>
       <footer>
-        Breadcrumb
         <div className="footer-box">
           <div className="footer-upper-box">
             <div className="box-items">

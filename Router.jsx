@@ -1,13 +1,15 @@
 import React from "react";
 import ProductProvider from "./src/data/products";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 // import Home from "./src/pages/Home/Home";
 import Layout from "./src/pages/Layout/Layout";
 import App from "./src/App";
 import ProductHomePage from "./src/pages/ProductInfo/ProductHomePage";
 import CatalogProducts from "./src/pages/Catalog/CatalogProducts";
-import CartModal from "./src/modal/CartModal/CartModal";
-import { Provider } from "react-redux";
+
+import Cart from "./src/pages/Cart/Cart";
+import ProductLayout from "./src/pages/Layout/ProductLayout";
+import CommentsHomePage from "./src/pages/ProductInfo/components/comments/CommentsHomePage";
 // import { store } from "./src/redux/store";
 
 function Router() {
@@ -18,12 +20,21 @@ function Router() {
         <Route path="*" element={<Navigate to="/" replace={true}></Navigate>} />
         <Route path="/" element={<Layout />}>
           <Route index element={<App />} />
-          <Route path="/cart" element={<CartModal />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/catalog/:category" element={<CatalogProducts />} />
           <Route
             path="/catalog/:category/:nameCategory/:id"
-            element={<ProductHomePage />}
-          />
+            element={<ProductLayout />}
+          >
+            <Route path="" element={<ProductHomePage />} />
+            <Route path="comments" element={<CommentsHomePage />} />
+            <Route path="characteristics" element={<></>} />
+            <Route path="questions" element={<></>} />
+            <Route path="videos" element={<></>} />
+            <Route path="accessories" element={<></>} />
+            <Route path="services" element={<></>}></Route>
+            <Route path="shops" element={<></>}></Route>
+          </Route>
 
           {/* <Route path="/:id/comments" element={<CommentsHomePage />} />
 //           <Route path="/:id/characteristics" element={<Characteristics />} />

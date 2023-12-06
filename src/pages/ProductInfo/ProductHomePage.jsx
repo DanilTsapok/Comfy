@@ -26,7 +26,6 @@ const ProductHomePage = () => {
   return (
     <>
       <ProductProvider>
-        <Breadcrumb />
         <ProductMain product={selectProduct} />
       </ProductProvider>
     </>

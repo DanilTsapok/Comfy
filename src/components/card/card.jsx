@@ -13,18 +13,15 @@ import { LiaShoppingCartSolid } from "react-icons/lia";
 import CrashModal from "../../modal/CrashModal/CrashModal";
 import { Col, Image, Row, Statistic } from "antd";
 import CountUp from "react-countup";
-import { ProductContextTest } from "../../data/testproducts";
+
 import useProducts from "../../store/Products/productsSlice";
 const Card = () => {
-  // const { products, setProducts } = useContext(ProductContextTest);
   const { productsCarts, setProductsCarts } = useProducts();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const location = useLocation();
-  console.log(location.pathname);
   const formatter = (value) => <CountUp end={value} separator="," />;
   return (
     <div className="cards-container cssanimation blurInRight">

@@ -14,7 +14,6 @@ const ProductMain = ({ product }) => {
 
   return (
     <>
-      <Nav product={product} />
       <div className="product-preview-wrapper">
         <div className="product-preview">
           <section className="product-preview-left-side">

@@ -1,43 +1,75 @@
 import React from "react";
 import "./nav-style.scss";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { Breadcrumb } from "react-bootstrap";
+import useProducts from "../../store/Products/productsSlice";
 
 export default function Nav({ product }) {
+  const { category, nameCategory, id } = useParams();
+  const { products } = useProducts();
+  console.log(products);
   return (
     <>
       <div className="navigation ">
         <div className="nav-items ">
-          <Link to={`/`} className={`nav-item `}>
+          <Link
+            to={`/catalog/${category}/${nameCategory}/${id}`}
+            className={`nav-item `}
+          >
             Все про товар
           </Link>
           <div className="nav-delimiter"></div>
-          <Link to={`/${product.id}/characteristics`} className={`nav-item`}>
+          <Link
+            to={`/catalog/${category}/${nameCategory}/${id}/characteristics`}
+            className={`nav-item`}
+          >
             Характеристики
           </Link>
           <div className="nav-delimiter"></div>
-          <Link to={`/${product.id}/comments`} className={`nav-item`}>
-            Відгуки<span>{product.numOfComments}</span>
+          <Link
+            to={`/catalog/${category}/${nameCategory}/${id}/comments`}
+            className={`nav-item`}
+          >
+            Відгуки
+            {/* <span>{product.numOfComments}</span> */}
           </Link>
           <div className="nav-delimiter"></div>
-          <a href="" className={`nav-item `}>
-            Питання<span>{product.question}</span>
-          </a>
-          <div className="nav-delimiter"></div>
-          <Link to="" className={`nav-item `}>
-            Відео<span>{product.video}</span>
+          <Link
+            to={`/catalog/${category}/${nameCategory}/${id}/questions`}
+            className={`nav-item `}
+          >
+            Питання
+            {/* <span>{product.question}</span> */}
           </Link>
           <div className="nav-delimiter"></div>
-          <a href="" className={`nav-item `}>
+          <Link
+            to={`/catalog/${category}/${nameCategory}/${id}/videos`}
+            className={`nav-item `}
+          >
+            Відео
+            {/* <span>{product.video}</span> */}
+          </Link>
+          <div className="nav-delimiter"></div>
+          <Link
+            to={`/catalog/${category}/${nameCategory}/${id}/accessories`}
+            className={`nav-item `}
+          >
             Аксесуари
-          </a>
+          </Link>
           <div className="nav-delimiter"></div>
-          <a href="" className={`nav-item `}>
+          <Link
+            to={`/catalog/${category}/${nameCategory}/${id}/services`}
+            className={`nav-item `}
+          >
             Сервіси
-          </a>
+          </Link>
           <div className="nav-delimiter"></div>
-          <a href="" className={`nav-item `}>
+          <Link
+            to={`/catalog/${category}/${nameCategory}/${id}/shops`}
+            className={`nav-item `}
+          >
             Наявність в магазинаx
-          </a>
+          </Link>
           <span className="nav-indicator"></span>
         </div>
       </div>

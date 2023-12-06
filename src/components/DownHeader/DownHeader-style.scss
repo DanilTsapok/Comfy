@@ -133,8 +133,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        p{
-            color: $color-white;
-        }
+       
+       .cart{
+        color: white;
+        text-decoration: none;
+       }
     }
 }

@@ -1,47 +1,39 @@
-// import React, { useContext, useState } from "react";
-// import Header from "../../../../components/firstHeader/Header";
-// import Secondheader from "../../../../components/secondHeader/secondHeader";
-// import { useLocation, useParams } from "react-router-dom";
-// import Nav from "../../../../components/nav/Nav";
+import React, { useState } from "react";
 
-// import Footer from "../../../../components/Footer/Footer";
+import { useLocation, useParams } from "react-router-dom";
+import Nav from "../../../../components/nav/Nav";
 
-// import MakeComments from "../../../../modal/makecommentsmodal/MakeComments";
-// import CommnetsBody from "./components/comments-body/CommnetsBody";
-// import ProductProvider, { ProductContext } from "../../../../data/products";
+import Footer from "../../../../components/Footer/Footer";
 
-// export default function CommentsHomePage() {
-//   const { products } = useContext(ProductContext);
+import MakeComments from "../../../../modal/makecommentsmodal/MakeComments";
+import useProducts from "../../../../store/Products/productsSlice";
+import CommentsBody from "./components/comments-body/CommentsBody";
+export default function CommentsHomePage() {
+  const { category, nameCategory, id } = useParams();
+  console.log(id);
+  const [MakeCommentsActive, setMakeCommentsActive] = useState(false);
+  const [comments, setComments] = useState([]);
+  const { products } = useProducts();
+  const test = products[category]?.productsCategory;
+  const selectProduct = test[nameCategory].devices.find(
+    (item) => item.id == id
+  );
+  console.log(selectProduct);
+  return (
+    <>
+      <CommentsBody
+        selectProduct={selectProduct}
+        setCommentsActive={setMakeCommentsActive}
+        comments={comments}
+        setComments={setComments}
+      />
 
-//   const { id } = useParams();
-//   const selectProduct = products.find((product) => product.id == id);
-
-//   const [MakeCommentsActive, setMakeCommentsActive] = useState(false);
-//   const [comments, setComments] = useState([]);
-//   const location = useLocation();
-
-//   return (
-//     <>
-//       <ProductProvider>
-//         <Header />
-//         <Secondheader />
-
-//         <Nav product={selectProduct} />
-//         <CommnetsBody
-//           selectProduct={selectProduct}
-//           setCommentsActive={setMakeCommentsActive}
-//           comments={comments}
-//           setComments={setComments}
-//         />
-
-//         <Footer />
-//         <MakeComments
-//           makecommentsActive={MakeCommentsActive}
-//           setCommentsActive={setMakeCommentsActive}
-//           comments={comments}
-//           setComments={setComments}
-//         />
-//       </ProductProvider>
-//     </>
-//   );
-// }
+      <MakeComments
+        makecommentsActive={MakeCommentsActive}
+        setCommentsActive={setMakeCommentsActive}
+        comments={comments}
+        setComments={setComments}
+      />
+    </>
+  );
+}
