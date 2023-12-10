@@ -7,7 +7,12 @@ import {
 import style from "./Cart-style.module.css";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
+import { useSelector } from "react-redux";
+
 function Cart() {
+  const cartProducts = useSelector((state) => state.cart);
+
+  console.log("Cart", cartProducts);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -26,7 +31,7 @@ function Cart() {
             </div>
             <div className={style.numOfProducts}>
               <p>
-                <span>1</span> товар
+                <span>{cartProducts.length}</span> товар
               </p>
             </div>
           </section>

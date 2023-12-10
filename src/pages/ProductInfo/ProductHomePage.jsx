@@ -5,6 +5,8 @@ import ProductMain from "./components/ProductMain/ProductMain";
 import ProductProvider, { ProductContext } from "../../data/products";
 import Breadcrumb from "../../components/location/Breadcrumb";
 import useProducts from "../../store/Products/productsSlice";
+import { useDispatch } from "react-redux";
+import { addProducts } from "../../redux/MyProductSlice";
 
 // import { store } from "../../redux/store";
 
@@ -15,11 +17,12 @@ const ProductHomePage = () => {
   const selectProduct = test[nameCategory].devices.find(
     (item) => item.id == id
   );
-
-  //   console.log(Object.keys(test).find((item) => item == nameCategory));
-  //   const selectProduct = products[category]?.productsCategory[
-  //     nameCategory
-  //   ]?.devices.find((item) => item.id === id);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    test[nameCategory].devices.map((item) => {
+      dispatch(addProducts(item));
+    });
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);

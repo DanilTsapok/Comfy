@@ -10,6 +10,8 @@ import { Col, Image, Row, Statistic } from "antd";
 import CountUp from "react-countup";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { Link, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addProductsToMyCart } from "../../../../redux/MyCartSlice";
 
 const ProductMain = ({ product }) => {
   const formatter = (value) => <CountUp end={value} separator="," />;
@@ -17,7 +19,7 @@ const ProductMain = ({ product }) => {
   const details = product.details;
   const parts = details.split(/;\s/);
   const resultObject = {};
-
+  const dispatch = useDispatch();
   parts.forEach((part) => {
     const [key, value] = part.split(":");
     resultObject[key.trim()] = value.trim();
@@ -96,7 +98,10 @@ const ProductMain = ({ product }) => {
                   <span> ₴</span>
                 </div>
               </div>
-              <button className="product-info-body-btn">
+              <button
+                className="product-info-body-btn"
+                onClick={dispatch(addProductsToMyCart(product))}
+              >
                 <LiaShoppingCartSolid size={25} />
                 Купити
               </button>

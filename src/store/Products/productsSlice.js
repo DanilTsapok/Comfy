@@ -1,4 +1,5 @@
 import { create } from "zustand";
+
 const ProductState = {
   smartphones: {
     categoryName: "Смартфони та телефони",
@@ -4846,6 +4847,7 @@ const ProductStateCards = [
       "Діагональ дисплея:6,7; Роздільна здатність екрану:2796х1290; Тип екрану:Super Retina XDR",
   },
 ];
+
 const useProducts = create((set) => ({
   products: ProductState,
   productsCarts: ProductStateCards,

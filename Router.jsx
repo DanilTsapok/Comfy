@@ -12,40 +12,44 @@ import ProductLayout from "./src/pages/Layout/ProductLayout";
 import CommentsHomePage from "./src/pages/ProductInfo/components/comments/CommentsHomePage";
 import Profile from "./src/pages/Profile/Profile";
 import Characteristics from "./src/pages/ProductInfo/components/characteristics/Characteristics";
-// import { store } from "./src/redux/store";
+import { store } from "./src/redux/store";
+import { Provider } from "react-redux";
 
 function Router() {
   return (
-    // <Provider store={store}>
-    <ProductProvider>
-      <Routes>
-        <Route path="*" element={<Navigate to="/" replace={true}></Navigate>} />
-        <Route path="/" element={<Layout />}>
-          <Route index element={<App />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/catalog/:category" element={<CatalogProducts />} />
+    <Provider store={store}>
+      <ProductProvider>
+        <Routes>
           <Route
-            path="/catalog/:category/:nameCategory/:id"
-            element={<ProductLayout />}
-          >
-            <Route path="" element={<ProductHomePage />} />
-            <Route path="comments" element={<CommentsHomePage />} />
-            <Route path="characteristics" element={<Characteristics />} />
-            <Route path="questions" element={<></>} />
-            <Route path="videos" element={<></>} />
-            <Route path="accessories" element={<></>} />
-            <Route path="services" element={<></>}></Route>
-            <Route path="shops" element={<></>}></Route>
-          </Route>
+            path="*"
+            element={<Navigate to="/" replace={true}></Navigate>}
+          />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<App />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/catalog/:category" element={<CatalogProducts />} />
+            <Route
+              path="/catalog/:category/:nameCategory/:id"
+              element={<ProductLayout />}
+            >
+              <Route path="" element={<ProductHomePage />} />
+              <Route path="comments" element={<CommentsHomePage />} />
+              <Route path="characteristics" element={<Characteristics />} />
+              <Route path="questions" element={<></>} />
+              <Route path="videos" element={<></>} />
+              <Route path="accessories" element={<></>} />
+              <Route path="services" element={<></>}></Route>
+              <Route path="shops" element={<></>}></Route>
+            </Route>
 
-          {/* <Route path="/:id/comments" element={<CommentsHomePage />} />
+            {/* <Route path="/:id/comments" element={<CommentsHomePage />} />
 //           <Route path="/:id/characteristics" element={<Characteristics />} />
 //           <Route path="admin" element={<Admin />} /> */}
-        </Route>
-      </Routes>
-    </ProductProvider>
-    // </Provider>
+          </Route>
+        </Routes>
+      </ProductProvider>
+    </Provider>
   );
 }
 
