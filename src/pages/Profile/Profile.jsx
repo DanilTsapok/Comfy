@@ -27,12 +27,11 @@ function Profile() {
       <div className="profileEmail">
         <p>Пошта покупця: {currentUser.email}</p>
       </div>
-      <div className="backHome">
-        <button className="product-info-body-btn" onClick={() => backHome(0)}>
-          <LiaShoppingCartSolid size={25} />
-          Go to home
-        </button>
-      </div>
+
+      <button className="product-info-body-btnHome" onClick={() => backHome(0)}>
+        <LiaShoppingCartSolid size={25} />
+        Go to home
+      </button>
     </div>
   );
 }

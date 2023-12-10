@@ -10,12 +10,14 @@ import { Col, Image, Row, Statistic } from "antd";
 import CountUp from "react-countup";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { Link, useParams } from "react-router-dom";
+
 const ProductMain = ({ product }) => {
   const formatter = (value) => <CountUp end={value} separator="," />;
   const images = product.images;
   const details = product.details;
   const parts = details.split(/;\s/);
   const resultObject = {};
+
   parts.forEach((part) => {
     const [key, value] = part.split(":");
     resultObject[key.trim()] = value.trim();
@@ -23,6 +25,7 @@ const ProductMain = ({ product }) => {
   const { category, nameCategory, id } = useParams();
   console.log(resultObject);
   // console.log(details);
+  console.log(product.video);
   return (
     <>
       <div className="product-preview-wrapper">
@@ -92,11 +95,11 @@ const ProductMain = ({ product }) => {
                   </Row>
                   <span> ₴</span>
                 </div>
-                <button className="product-info-body-btn">
-                  <LiaShoppingCartSolid size={25} />
-                  Купити
-                </button>
               </div>
+              <button className="product-info-body-btn">
+                <LiaShoppingCartSolid size={25} />
+                Купити
+              </button>
             </div>
             <div className="info-product-characteristics">
               <table className="table">
@@ -117,11 +120,27 @@ const ProductMain = ({ product }) => {
               </table>
               <div>
                 <Link
-                  style={{ color: "green" }}
+                  style={{ color: "lightgreen" }}
                   to={`/catalog/${category}/${nameCategory}/${id}/characteristics`}
                 >
                   Детальніше
                 </Link>
+              </div>
+              <h1>Відео</h1>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <iframe
+                  src={product.video}
+                  width="600"
+                  height="300"
+                  title="Embedded Video"
+                ></iframe>
               </div>
             </div>
           </section>

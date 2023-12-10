@@ -8,7 +8,7 @@
 }
 .characteristicsMainContent{
     width: 72%;
-    display: flex;
+    
     background-color: #fff;
    
 }
@@ -18,4 +18,8 @@
     padding: 0px 64px;
     font-size: 34px;
     font-weight: 700;
+}
+.characteristicsHeader{
+    margin: 0px 0px 36px;
+    padding: 36px 36px 0px 64px;
 }

@@ -1,13 +1,13 @@
 @import "../../colors.scss";
 .Profile-body{
-    height: 100vh;
     width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.product-info-body-btn{
+.product-info-body-btnHome{
     width: 200px;
     height: 48px;
     border-radius: 8px;

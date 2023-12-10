@@ -10,11 +10,12 @@ export default function CommentsBody({
   setCommentsActive,
   comments,
 }) {
+  console.log(selectProduct);
   return (
     <div className="comments-wrapper">
       <div className="comments-main">
         <div className="comments-header">
-          <h1>{selectProduct.name}</h1>
+          <h1>{selectProduct.subname}</h1>
         </div>
         <div className="comments-body">
           <div className="comments-body-left-side">
@@ -66,7 +67,7 @@ export default function CommentsBody({
                 </div>
                 <div className="info-header-title">
                   <p>Код: {selectProduct.id}</p>
-                  <h1>{selectProduct.name}</h1>
+                  <h1>{`${selectProduct.subname.slice(0, 40)}...`}</h1>
                 </div>
               </div>
               <div className="product-info-body">
@@ -78,7 +79,7 @@ export default function CommentsBody({
                   <p>на бонусний рахунок</p>
                 </div>
               </div>
-              <button className="product-info-body-btn">
+              <button className="product-info-body-btnComments">
                 <LiaShoppingCartSolid size={25} />
                 Купити
               </button>
