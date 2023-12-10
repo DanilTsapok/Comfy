@@ -16,7 +16,7 @@ import CountUp from "react-countup";
 
 import useProducts from "../../store/Products/productsSlice";
 const Card = () => {
-  const { productsCarts, setProductsCarts } = useProducts();
+  const { productsCarts } = useProducts();
 
   useEffect(() => {
     window.scrollTo(0, 0);

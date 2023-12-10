@@ -9,10 +9,20 @@ import Nav from "../../../../components/nav/Nav";
 import { Col, Image, Row, Statistic } from "antd";
 import CountUp from "react-countup";
 import { LiaShoppingCartSolid } from "react-icons/lia";
+import { Link, useParams } from "react-router-dom";
 const ProductMain = ({ product }) => {
   const formatter = (value) => <CountUp end={value} separator="," />;
   const images = product.images;
-  console.log(images);
+  const details = product.details;
+  const parts = details.split(/;\s/);
+  const resultObject = {};
+  parts.forEach((part) => {
+    const [key, value] = part.split(":");
+    resultObject[key.trim()] = value.trim();
+  });
+  const { category, nameCategory, id } = useParams();
+  console.log(resultObject);
+  // console.log(details);
   return (
     <>
       <div className="product-preview-wrapper">
@@ -88,7 +98,32 @@ const ProductMain = ({ product }) => {
                 </button>
               </div>
             </div>
-            <div className="info-product-characteristics"></div>
+            <div className="info-product-characteristics">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Характеристики</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.keys(resultObject).map((element) => (
+                    <tr>
+                      <td>{element}</td>
+                      <td className="value">{resultObject[element]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div>
+                <Link
+                  style={{ color: "green" }}
+                  to={`/catalog/${category}/${nameCategory}/${id}/characteristics`}
+                >
+                  Детальніше
+                </Link>
+              </div>
+            </div>
           </section>
         </div>
       </div>

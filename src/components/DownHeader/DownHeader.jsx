@@ -6,16 +6,14 @@ import arrow from "../../assets/png/icons8-expand-arrow-30.png";
 import loop from "../../assets/png/icons8-search-48.png";
 import heart from "../../assets/png/icons8-heart-24.png";
 import { LiaShoppingCartSolid } from "react-icons/lia";
-// import { Link } from "react-router-dom";
 import { AuthContext } from "../../data/AuthProvider";
-// import useLocalStorage from "../../hooks/useLocalStorage";
 import { firebaseAuth } from "../../firebase/firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 export default function DownHeader() {
   const auth = useContext(AuthContext);
 
   const [user, setUser] = useState(null);
-
   useEffect(() => {
     const unsubscribe = firebaseAuth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
@@ -23,9 +21,12 @@ export default function DownHeader() {
     return () => unsubscribe();
   }, []);
 
+  const navigate = useNavigate();
+
   const removeCurrentUser = async () => {
     await firebaseAuth.signOut();
     localStorage.removeItem("user");
+    navigate("/");
   };
   return (
     <>
@@ -51,9 +52,23 @@ export default function DownHeader() {
               <div className="second-header-login ">
                 {firebaseAuth.currentUser ? (
                   <div className="ProfileLogo">
-                    <p>{user.displayName.slice(0, 1)}</p>
+                    <Link
+                      to={`/profile`}
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
+                      {firebaseAuth.currentUser.photoURL ? (
+                        <img
+                          style={{ width: 40, height: 40, borderRadius: "50%" }}
+                          src={firebaseAuth.currentUser.photoURL}
+                        />
+                      ) : (
+                        <p>{user.email.slice(0, 1).toUpperCase()}</p>
+                      )}
+                    </Link>
                   </div>
-                ) : null}
+                ) : (
+                  navigate("/")
+                )}
                 {firebaseAuth.currentUser && localStorage.getItem("user") ? (
                   <button onClick={() => removeCurrentUser()}>Выйти</button>
                 ) : (
@@ -70,7 +85,7 @@ export default function DownHeader() {
                 <LiaShoppingCartSolid size={26} color="white" />
                 <p style={{ margin: 0 }}>
                   <Link to="/cart" className="cart">
-                    Кошик <span>1</span>{" "}
+                    Кошик
                   </Link>
                 </p>
               </div>

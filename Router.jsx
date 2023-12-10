@@ -11,6 +11,7 @@ import Cart from "./src/pages/Cart/Cart";
 import ProductLayout from "./src/pages/Layout/ProductLayout";
 import CommentsHomePage from "./src/pages/ProductInfo/components/comments/CommentsHomePage";
 import Profile from "./src/pages/Profile/Profile";
+import Characteristics from "./src/pages/ProductInfo/components/characteristics/Characteristics";
 // import { store } from "./src/redux/store";
 
 function Router() {
@@ -30,7 +31,7 @@ function Router() {
           >
             <Route path="" element={<ProductHomePage />} />
             <Route path="comments" element={<CommentsHomePage />} />
-            <Route path="characteristics" element={<></>} />
+            <Route path="characteristics" element={<Characteristics />} />
             <Route path="questions" element={<></>} />
             <Route path="videos" element={<></>} />
             <Route path="accessories" element={<></>} />

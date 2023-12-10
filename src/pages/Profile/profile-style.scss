@@ -1,0 +1,50 @@
+@import "../../colors.scss";
+.Profile-body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.product-info-body-btn{
+    width: 200px;
+    height: 48px;
+    border-radius: 8px;
+    border: none;
+    background-color: $primary;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        transition: .3s;
+        cursor: pointer;
+        background-color: $color-orange;
+    }
+}
+.profileIcon{
+    margin-bottom: 20px;
+    img{
+        border: 5px solid white;
+        box-shadow: 1px 1px 10px grey;
+        border-radius: 50%;
+    }
+}
+.profileIconWithoutPhoto{
+    width: 106px;
+    height: 106px;
+    border: 5px solid white;
+    box-shadow: 1px 1px 10px grey;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: white;
+    text-transform: uppercase;
+    background-color: $primary ;
+}
