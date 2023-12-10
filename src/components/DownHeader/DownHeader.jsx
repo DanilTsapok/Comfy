@@ -9,10 +9,12 @@ import { LiaShoppingCartSolid } from "react-icons/lia";
 import { AuthContext } from "../../data/AuthProvider";
 import { firebaseAuth } from "../../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function DownHeader() {
   const auth = useContext(AuthContext);
 
+  const cartProducts = useSelector((state) => state.cart);
   const [user, setUser] = useState(null);
   useEffect(() => {
     const unsubscribe = firebaseAuth.onAuthStateChanged((currentUser) => {
@@ -85,7 +87,7 @@ export default function DownHeader() {
                 <LiaShoppingCartSolid size={26} color="white" />
                 <p style={{ margin: 0 }}>
                   <Link to="/cart" className="cart">
-                    Кошик
+                    Кошик {cartProducts.length}
                   </Link>
                 </p>
               </div>

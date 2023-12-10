@@ -100,7 +100,7 @@ const ProductMain = ({ product }) => {
               </div>
               <button
                 className="product-info-body-btn"
-                onClick={dispatch(addProductsToMyCart(product))}
+                onClick={() => dispatch(addProductsToMyCart(product))}
               >
                 <LiaShoppingCartSolid size={25} />
                 Купити

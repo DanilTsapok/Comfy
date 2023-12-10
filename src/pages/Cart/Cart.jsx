@@ -8,7 +8,7 @@ import style from "./Cart-style.module.css";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem } from "../../redux/MyCartSlice";
+import { addProductsToMyCart, deleteItem } from "../../redux/MyCartSlice";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -18,6 +18,16 @@ function Cart() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const getTotalPrice = () => {
+    let totalSum = 0;
+    cartProducts.map((item) => {
+      totalSum += item.qty * item.price;
+    });
+    console.log(totalSum);
+    return +totalSum;
+  };
+
   return (
     <>
       <div className={style.cartBodyWrapper}>
@@ -54,7 +64,7 @@ function Cart() {
                   </div>
 
                   <div className={style.productTitle}>
-                    <h4>{item.subname}</h4>
+                    <h4>{item.subname.slice(0, 43)}...</h4>
                     <p>Код товару: {item.id}</p>
                     <div className={style.productBtns}>
                       <div style={{ display: "flex" }}>
@@ -74,14 +84,26 @@ function Cart() {
                     </div>
                   </div>
                   <div className={style.productPrice}>
-                    <h1>121234</h1>
+                    <h1>{item.price}₴</h1>
                     <div className={style.productChangeCount}>
                       <div>
-                        <PlusCircleFilled />
+                        <MinusCircleFilled
+                          onClick={() => {
+                            if (item.qty > 1) {
+                              dispatch(removeMyCartItem(item));
+                            } else {
+                              dispatch(deleteItem(item.id));
+                            }
+                          }}
+                        />
                       </div>
-                      <div>1</div>
+                      <div>{item.qty}</div>
                       <div>
-                        <MinusCircleFilled />
+                        <PlusCircleFilled
+                          onClick={() => {
+                            dispatch(addProductsToMyCart(item));
+                          }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -93,7 +115,8 @@ function Cart() {
                 <div className={style.totalPrice}>
                   <p style={{ fontWeight: 600 }}>Загальна сума</p>
                   <p className={style.totalProductPrice}>
-                    132141<span style={{ fontSize: 24 }}>₴</span>
+                    {getTotalPrice()}
+                    <span style={{ fontSize: 24 }}>₴</span>
                   </p>
                 </div>
                 <Button className={style.MakeOrder}>Оформити замовлення</Button>
