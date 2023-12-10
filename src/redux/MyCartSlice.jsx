@@ -17,7 +17,7 @@ const MyCartSlice = createSlice({
           subname: action.payload.subname,
           img: action.payload.img,
           price: action.payload.price,
-          qty: action.payload.aty + 1,
+          qty: action.payload.qty + 1,
         });
       } else {
         state[myIndex].qty = state[myIndex].qty + 1;

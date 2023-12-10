@@ -8,7 +8,11 @@ import style from "./Cart-style.module.css";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductsToMyCart, deleteItem } from "../../redux/MyCartSlice";
+import {
+  addProductsToMyCart,
+  deleteItem,
+  removeMyCartItem,
+} from "../../redux/MyCartSlice";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -22,6 +26,7 @@ function Cart() {
   const getTotalPrice = () => {
     let totalSum = 0;
     cartProducts.map((item) => {
+      console.log(item);
       totalSum += item.qty * item.price;
     });
     console.log(totalSum);
