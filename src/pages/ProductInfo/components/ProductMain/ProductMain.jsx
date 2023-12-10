@@ -8,28 +8,22 @@ import Rating from "@mui/material/Rating";
 import Nav from "../../../../components/nav/Nav";
 import { Col, Image, Row, Statistic } from "antd";
 import CountUp from "react-countup";
-
+import { LiaShoppingCartSolid } from "react-icons/lia";
 const ProductMain = ({ product }) => {
   const formatter = (value) => <CountUp end={value} separator="," />;
-
+  const images = product.images;
+  console.log(images);
   return (
     <>
       <div className="product-preview-wrapper">
         <div className="product-preview">
           <section className="product-preview-left-side">
             <div className="left-gallery-scroll-images">
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
-              <img src={product.img} alt="" />
+              {images.map((value) => (
+                <Image.PreviewGroup>
+                  <Image src={value} />
+                </Image.PreviewGroup>
+              ))}
             </div>
             <div className="right-gallery-img">
               <Image.PreviewGroup>
@@ -41,15 +35,8 @@ const ProductMain = ({ product }) => {
             <div className="info-main">
               <h1 className="title-of-product">{product.subname}</h1>
               <div className="info-main-labels">
-                <a href="">
-                  <img src={crash} alt="" />
-                </a>
-                <a href="">
-                  <img src={crash} alt="" />
-                </a>
-                <a href="">
-                  <img src={crash} alt="" />
-                </a>
+                <img src={crash} alt="" />
+                <p>Кращ</p>
               </div>
               <div className="info-main-review">
                 <div className="info-main-rating">
@@ -87,9 +74,6 @@ const ProductMain = ({ product }) => {
             </div>
             <div className="info-product-price">
               <div className="info-product-price-box">
-                <h2>
-                  ₴ <span>-5%</span>
-                </h2>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <Row gutter={16}>
                     <Col span={12}>
@@ -98,16 +82,13 @@ const ProductMain = ({ product }) => {
                   </Row>
                   <span> ₴</span>
                 </div>
-                <a href="">Купити</a>
+                <button className="product-info-body-btn">
+                  <LiaShoppingCartSolid size={25} />
+                  Купити
+                </button>
               </div>
-              <div className="info-product-price-btns"></div>
             </div>
-            <div className="info-credits">
-              <div className="credits-btn">
-                <a href="">Купити в кредит</a>
-              </div>
-              <div className="icons"></div>
-            </div>
+            <div className="info-product-characteristics"></div>
           </section>
         </div>
       </div>

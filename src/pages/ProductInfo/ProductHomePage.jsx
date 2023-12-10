@@ -4,12 +4,13 @@ import { useLocation, useParams } from "react-router-dom";
 import ProductMain from "./components/ProductMain/ProductMain";
 import ProductProvider, { ProductContext } from "../../data/products";
 import Breadcrumb from "../../components/location/Breadcrumb";
+import useProducts from "../../store/Products/productsSlice";
 
 // import { store } from "../../redux/store";
 
 const ProductHomePage = () => {
   const { category, nameCategory, id } = useParams();
-  const { products } = useContext(ProductContext);
+  const { products } = useProducts();
   const test = products[category]?.productsCategory;
   const selectProduct = test[nameCategory].devices.find(
     (item) => item.id == id

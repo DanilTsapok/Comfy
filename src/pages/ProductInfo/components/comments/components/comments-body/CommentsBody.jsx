@@ -62,7 +62,7 @@ export default function CommentsBody({
             <div className="r-s-product-info">
               <div className="product-info-header">
                 <div className="info-header-img">
-                  <img src={`../${selectProduct.img}`} alt="" />
+                  <img src={`${selectProduct.img}`} alt="" />
                 </div>
                 <div className="info-header-title">
                   <p>Код: {selectProduct.id}</p>

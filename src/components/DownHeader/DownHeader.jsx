@@ -13,10 +13,8 @@ import { firebaseAuth } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 export default function DownHeader() {
   const auth = useContext(AuthContext);
-  console.log(auth.currentUser);
 
-  // const [user, setUser] = useLocalStorage(false, "user");
-  const [, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const unsubscribe = firebaseAuth.onAuthStateChanged((currentUser) => {
@@ -51,16 +49,23 @@ export default function DownHeader() {
             </div>
             <div className="second-header-items">
               <div className="second-header-login ">
+                {firebaseAuth.currentUser ? (
+                  <div className="ProfileLogo">
+                    <p>{user.displayName.slice(0, 1)}</p>
+                  </div>
+                ) : null}
                 {firebaseAuth.currentUser && localStorage.getItem("user") ? (
                   <button onClick={() => removeCurrentUser()}>Выйти</button>
                 ) : (
-                  <button onClick={() => auth.toggleAuth()}>Увійти</button>
+                  <div style={{ display: "flex", gap: 20 }}>
+                    <button onClick={() => auth.toggleAuth()}>Увійти</button>
+                    <div className="second-header-like ">
+                      <img src={heart} alt="" />
+                    </div>
+                  </div>
                 )}
               </div>
 
-              <div className="second-header-like ">
-                <img src={heart} alt="" />
-              </div>
               <div className="second-header-basket ">
                 <LiaShoppingCartSolid size={26} color="white" />
                 <p style={{ margin: 0 }}>

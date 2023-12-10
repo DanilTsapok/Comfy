@@ -10,6 +10,7 @@ import CatalogProducts from "./src/pages/Catalog/CatalogProducts";
 import Cart from "./src/pages/Cart/Cart";
 import ProductLayout from "./src/pages/Layout/ProductLayout";
 import CommentsHomePage from "./src/pages/ProductInfo/components/comments/CommentsHomePage";
+import Profile from "./src/pages/Profile/Profile";
 // import { store } from "./src/redux/store";
 
 function Router() {
@@ -20,6 +21,7 @@ function Router() {
         <Route path="*" element={<Navigate to="/" replace={true}></Navigate>} />
         <Route path="/" element={<Layout />}>
           <Route index element={<App />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/catalog/:category" element={<CatalogProducts />} />
           <Route

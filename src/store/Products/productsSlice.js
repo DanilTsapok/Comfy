@@ -17,6 +17,15 @@ const ProductState = {
         devices: [
           {
             id: 12411,
+            images: [
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en_1_.jpg/w_600",
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1_alt__ww-en_1__1.jpg/w_600",
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-2__ww-en_1__1.jpg/w_600",
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-3__ww-en_1__1.jpg/w_600",
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-5__ww-en_1__1.jpg/w_600",
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-4__ww-en_1__1.jpg/w_600",
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-9__ww-en_1__1.jpg/w_600",
+            ],
             name: "iPhone 15 Pro Max",
             subname: "Смартфон Apple iPhone 15 Pro Max 256Gb Natural Titanium",
             price: 63499,
@@ -31,6 +40,13 @@ const ProductState = {
           },
           {
             id: 1241,
+            images: [
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en_1_.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1_alt__ww-en_1__1.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-2__ww-en_1__1.jpg/w_600",
+            ],
             name: "iPhone 15 Pro ",
             subname: "Смартфон Apple iPhone 15 Pro 128Gb Blue Titanium",
             price: 53500,
@@ -45,6 +61,13 @@ const ProductState = {
           },
           {
             id: 1241234,
+            images: [
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en_1_.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1_alt__ww-en_1__1.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-2__ww-en_1__1.jpg/w_600",
+            ],
             name: "iPhone 15 Pro ",
             subname: "Смартфон Apple iPhone 15 Pro 128Gb Blue Titanium",
             price: 63499,
@@ -59,6 +82,13 @@ const ProductState = {
           },
           {
             id: 1241543,
+            images: [
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en_1_.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1_alt__ww-en_1__1.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-2__ww-en_1__1.jpg/w_600",
+            ],
             name: "iPhone 15 Pro ",
             subname: "Смартфон Apple iPhone 15 Pro 128Gb Blue Titanium",
             price: 63499,
@@ -74,6 +104,13 @@ const ProductState = {
           {
             id: 1243241,
             name: "iPhone 15 Pro ",
+            images: [
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en_1_.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1_alt__ww-en_1__1.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-2__ww-en_1__1.jpg/w_600",
+            ],
             subname: "Смартфон Apple iPhone 15 Pro 128Gb Blue Titanium",
             price: 63499,
             checked: false,
@@ -87,6 +124,13 @@ const ProductState = {
           },
           {
             id: 12434541,
+            images: [
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en_1_.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1_alt__ww-en_1__1.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-2__ww-en_1__1.jpg/w_600",
+            ],
             name: "iPhone 15 Pro ",
             subname: "Смартфон Apple iPhone 15 Pro 128Gb Blue Titanium",
             price: 63499,
@@ -102,6 +146,13 @@ const ProductState = {
           {
             id: 124325241,
             name: "iPhone 15 Pro ",
+            images: [
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en_1_.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-1_alt__ww-en_1__1.jpg/w_600",
+              ,
+              "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/i/p/iphone_15_pro_max_natural_titanium_pdp_image_position-2__ww-en_1__1.jpg/w_600",
+            ],
             subname: "Смартфон Apple iPhone 15 Pro 128Gb Blue Titanium",
             price: 63499,
             checked: false,

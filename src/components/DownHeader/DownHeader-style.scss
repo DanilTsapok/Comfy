@@ -140,3 +140,17 @@
        }
     }
 }
+.ProfileLogo{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #379424;
+    p{
+        margin: 0;
+    }
+}
