@@ -5,12 +5,18 @@ import ImportExportIcon from "@mui/icons-material/ImportExport";
 import StarIcon from "@mui/icons-material/Star";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import Comment from "../comment/Comment";
+import { useDispatch } from "react-redux";
+import { addProductsToMyCart } from "../../../../../../redux/MyCartSlice";
 export default function CommentsBody({
   selectProduct,
   setCommentsActive,
   comments,
 }) {
   console.log(selectProduct);
+  const dispatch = useDispatch();
+  const handleProduct = () => {
+    dispatch(addProductsToMyCart(selectProduct));
+  };
   return (
     <div className="comments-wrapper">
       <div className="comments-main">
@@ -79,7 +85,10 @@ export default function CommentsBody({
                   <p>на бонусний рахунок</p>
                 </div>
               </div>
-              <button className="product-info-body-btnComments">
+              <button
+                className="product-info-body-btnComments"
+                onClick={() => handleProduct()}
+              >
                 <LiaShoppingCartSolid size={25} />
                 Купити
               </button>

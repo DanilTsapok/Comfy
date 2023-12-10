@@ -7,9 +7,11 @@ import {
 import style from "./Cart-style.module.css";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteItem } from "../../redux/MyCartSlice";
 
 function Cart() {
+  const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cart);
 
   console.log("Cart", cartProducts);
@@ -35,40 +37,56 @@ function Cart() {
               </p>
             </div>
           </section>
+
           <section style={{ gap: 20, display: "flex" }}>
-            <div
-              className={style.productInfoLeftSide}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <div className={style.productInfoImg}>
-                <img src="" alt="img"></img>
-              </div>
-              <div className={style.productInfoStatus}></div>
-              <div className={style.productTitle}>
-                <h1>Товар</h1>
-                <p>Код товару: 1</p>
-                <div className={style.productBtns}>
-                  <div>
-                    <Button>Видалити</Button>
+            <div style={{ width: "100%" }}>
+              {cartProducts.map((item) => (
+                <div
+                  className={style.productInfoLeftSide}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <div className={style.productInfoImg}>
+                    <img src={item.img} alt="img"></img>
+                  </div>
+
+                  <div className={style.productTitle}>
+                    <h4>{item.subname}</h4>
+                    <p>Код товару: {item.id}</p>
+                    <div className={style.productBtns}>
+                      <div style={{ display: "flex" }}>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => {
+                            if (item.qty > 1) {
+                              dispatch(removeMyCartItem(item));
+                            } else {
+                              dispatch(deleteItem(item.id));
+                            }
+                          }}
+                        >
+                          Видалити
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={style.productPrice}>
+                    <h1>121234</h1>
+                    <div className={style.productChangeCount}>
+                      <div>
+                        <PlusCircleFilled />
+                      </div>
+                      <div>1</div>
+                      <div>
+                        <MinusCircleFilled />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className={style.productPrice}>
-                <h1>121234</h1>
-                <div className={style.productChangeCount}>
-                  <div>
-                    <PlusCircleFilled />
-                  </div>
-                  <div>1</div>
-                  <div>
-                    <MinusCircleFilled />
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             <div className={style.productInfoRightSide}>
               <div className={style.productRightSideContent}>
