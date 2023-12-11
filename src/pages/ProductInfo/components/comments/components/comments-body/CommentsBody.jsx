@@ -12,7 +12,6 @@ export default function CommentsBody({
   setCommentsActive,
   comments,
 }) {
-  console.log(selectProduct);
   const dispatch = useDispatch();
   const handleProduct = () => {
     dispatch(addProductsToMyCart(selectProduct));

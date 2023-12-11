@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./comment-style.scss";
 import { Box, Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
+import { firebaseAuth } from "../../../../../../firebase/firebase";
 function Comment({ comment, selectProduct }) {
   const [currentDate, setCurrentDate] = useState("");
 
@@ -9,7 +10,8 @@ function Comment({ comment, selectProduct }) {
     const getCurrentDate = () => {
       const today = new Date();
       const day = today.getDate();
-      const month = today.getMonth() + 1;
+      const month = today.getMonth();
+
       const year = today.getFullYear();
       const months = [
         "Січень",
@@ -34,6 +36,7 @@ function Comment({ comment, selectProduct }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <>
       <div className="comment-main">
@@ -43,7 +46,7 @@ function Comment({ comment, selectProduct }) {
           </div>
           <div className="item-content-text">
             <div className="item__header">
-              <p className="customer">{comment.name}</p>
+              <p className="customer">{firebaseAuth.currentUser.email}</p>
               <div>
                 <div className="comment-date">{currentDate}</div>
                 <div className="rating">

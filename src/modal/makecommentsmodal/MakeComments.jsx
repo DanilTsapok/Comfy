@@ -23,23 +23,25 @@ export default function MakeComments({
   };
   const [value, setValue] = useState(0);
   const [commentData, setCommentData] = useConsoleState(commentState);
+
   const currentUser = JSON.parse(localStorage.getItem("user"));
-  //   console.log(currentUser.displayName);
+
   const auth = useContext(AuthContext);
+
   const resetForm = () => {
-    setCommentData();
+    // setCommentData();
     setValue(0);
   };
+
   const addComment = () => {
     const newComment = { ...commentData, rating: value };
     setComments([...comments, newComment]);
-    resetForm();
   };
 
   const handleInputChange = (e) => {
-    //   e.preventDefault();
-    //   const { name, value } = e.target;
-    //   setCommentData({ ...commentData, [name]: value });
+    e.preventDefault();
+    const { name, value } = e.target;
+    setCommentData({ ...commentData, [name]: value });
   };
   return (
     <>
@@ -101,7 +103,6 @@ export default function MakeComments({
                   onChange={handleInputChange}
                   required
                   placeholder="Загальні враження від використання товару"
-                  value={commentData.text}
                 ></textarea>
               </div>
               <p>
@@ -146,7 +147,7 @@ export default function MakeComments({
                   />
                 </div>
               </div>
-              <div
+              {/* <div
                 className="addPhoto"
                 onClick={() => document.querySelector(".inputAddPhoto").click()}
               >
@@ -171,7 +172,7 @@ export default function MakeComments({
                   className="inputAddPhoto"
                   hidden
                 />
-              </div>
+              </div> */}
               <div className="AddComment">
                 <input
                   type="button"
@@ -179,6 +180,7 @@ export default function MakeComments({
                   onClick={() => {
                     addComment();
                     setCommentsActive(false);
+                    resetForm();
                   }}
                 />
               </div>

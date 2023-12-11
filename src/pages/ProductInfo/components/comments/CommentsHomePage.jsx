@@ -10,9 +10,10 @@ import useProducts from "../../../../store/Products/productsSlice";
 import CommentsBody from "./components/comments-body/CommentsBody";
 export default function CommentsHomePage() {
   const { category, nameCategory, id } = useParams();
-  console.log(id);
+
   const [MakeCommentsActive, setMakeCommentsActive] = useState(false);
   const [comments, setComments] = useState([]);
+
   const { products } = useProducts();
   const test = products[category]?.productsCategory;
   const selectProduct = test[nameCategory].devices.find(

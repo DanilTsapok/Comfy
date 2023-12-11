@@ -34,8 +34,8 @@ const ProductMain = ({ product }) => {
         <div className="product-preview">
           <section className="product-preview-left-side">
             <div className="left-gallery-scroll-images">
-              {images.map((value) => (
-                <Image.PreviewGroup>
+              {images.map((value, index) => (
+                <Image.PreviewGroup key={index}>
                   <Image src={value} />
                 </Image.PreviewGroup>
               ))}

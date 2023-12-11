@@ -28,8 +28,8 @@ function Characteristics() {
           <h1 className={styles.characteristicsHeader}>
             {selectProduct.subname}
           </h1>
-          <div>
-            <table className="table">
+          <div style={{ padding: 30, display: "c" }}>
+            <table className="table" style={{ width: "60%" }}>
               <thead>
                 <tr>
                   <th>Характеристики</th>
