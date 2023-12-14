@@ -17,7 +17,7 @@ function Characteristics() {
     const [key, value] = part.split(":");
     resultObject[key.trim()] = value.trim();
   });
-  console.log(resultObject);
+  // console.log(resultObject);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

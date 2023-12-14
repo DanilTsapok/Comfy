@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 // // import catalog from "../../data/catalog";
 import "./catalog-style.scss";
 import "./../../colors.scss";
@@ -20,11 +20,21 @@ import { Tooltip } from "antd";
 import { Link } from "react-router-dom";
 import { ProductContext } from "../../data/products";
 import useProducts from "../../store/Products/productsSlice";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const Catalog = () => {
   const [isHovered, setHover] = useState(false);
   const imgArray = [img1, img2, img3, img4];
   const { products } = useProducts();
+  const nodeRef = useRef(null);
+
+  const [isTest, setTest] = useState();
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setTest(null);
+    }, 0);
+    return () => clearTimeout(timeout);
+  }, []);
   // const { products } = useContext(ProductContext);
   return (
     <div className="catalog ">
@@ -38,7 +48,9 @@ const Catalog = () => {
                   title={products[category].categoryName}
                   color="green"
                 >
-                  <a
+                  <div
+                    className="linkA"
+                    ref={nodeRef}
                     href=""
                     onMouseEnter={() => setHover(false)}
                     onMouseLeave={() => setHover(false)}
@@ -66,7 +78,7 @@ const Catalog = () => {
                         <></>
                       )}
                     </div>
-                  </a>
+                  </div>
                 </Tooltip>
               </div>
             ))}
@@ -77,7 +89,7 @@ const Catalog = () => {
             isHovered ? "catalog-right-side active" : "catalog-right-side "
           }
         >
-          <div className="catalog-right-side-items  cssanimation blurIn">
+          <div className="catalog-right-side-items  ">
             <a href="">
               <div className="right-side-item ">
                 <div className="item-logo">
@@ -112,11 +124,20 @@ const Catalog = () => {
           <div className="catalog-right-side-slider ">
             <div className="slider-slide-wrapper">
               <div className="slider-slide-wrap">
-                {imgArray.map((slide, index) => (
-                  <div className="slider-slide" key={index}>
-                    <img src={slide} alt="" />
-                  </div>
-                ))}
+                <TransitionGroup component={isTest} style={{ display: "flex" }}>
+                  {imgArray.map((slide, index) => (
+                    <CSSTransition
+                      key={index}
+                      timeout={500}
+                      classNames="fade"
+                      in={isTest}
+                    >
+                      <div className="slider-slide" key={index}>
+                        <img src={slide} alt="" />
+                      </div>
+                    </CSSTransition>
+                  ))}
+                </TransitionGroup>
               </div>
             </div>
           </div>

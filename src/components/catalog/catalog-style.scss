@@ -33,7 +33,7 @@
         align-items: center;
         flex-wrap: wrap;
         margin: 13px 8px 0;
-        a{
+        .linkA{
             width: 100%;
             display: flex;
             align-items: center;
@@ -43,6 +43,7 @@
             font-weight: 200;
             text-decoration: none;  
             font-size: 14px; 
+         
         }
         .link{
             display: flex;
@@ -51,6 +52,8 @@
        
         .linkItem{
             flex-wrap: wrap;
+            color: black;
+            text-decoration: none;
             margin: 0px 0px 0px 15px;
             &:hover{
                 
@@ -149,7 +152,6 @@
         .slider-slide-wrap {
      
              display: flex;
-             
              width: max-content;
          }
          .slider-slide{
@@ -209,3 +211,21 @@
         align-items: center;
     }
  }
+ 
+ .fade-enter {
+    opacity: 0.01;
+  }
+  
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+  }

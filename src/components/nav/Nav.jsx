@@ -7,7 +7,7 @@ import useProducts from "../../store/Products/productsSlice";
 export default function Nav({ product }) {
   const { category, nameCategory, id } = useParams();
   const { products } = useProducts();
-  console.log(products);
+
   return (
     <>
       <div className="navigation ">

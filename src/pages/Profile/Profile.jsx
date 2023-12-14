@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 function Profile() {
   const currentUser = JSON.parse(localStorage.getItem("user"));
-  console.log(currentUser);
+  // console.log(currentUser);
   const navigate = useNavigate();
   const backHome = () => {
     navigate("/");

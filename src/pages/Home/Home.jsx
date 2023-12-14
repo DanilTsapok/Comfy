@@ -28,9 +28,9 @@ const Home = () => {
       <ProductProviderTest>
         <ProductProvider>
           <Catalog />
-          <Card />
+          {/* <Card /> */}
 
-          {loading && <Loader />}
+          {/* {loading && <Loader />} */}
         </ProductProvider>
       </ProductProviderTest>
     </>

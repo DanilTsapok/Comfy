@@ -19,7 +19,7 @@ export default function CommentsHomePage() {
   const selectProduct = test[nameCategory].devices.find(
     (item) => item.id == id
   );
-  console.log(selectProduct);
+  // console.log(selectProduct);
   return (
     <>
       <CommentsBody

@@ -25,9 +25,9 @@ const ProductMain = ({ product }) => {
     resultObject[key.trim()] = value.trim();
   });
   const { category, nameCategory, id } = useParams();
-  console.log(resultObject);
-  // console.log(details);
-  console.log(product.video);
+  // console.log(resultObject);
+  // // console.log(details);
+  // console.log(product.video);
   return (
     <>
       <div className="product-preview-wrapper">
