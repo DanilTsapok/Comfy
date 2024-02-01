@@ -71,7 +71,7 @@ export default function UpHeader() {
               <div className="header-change-lang">
                 <a href="">УКР</a>
                 <a href="">РУС</a>
-                <Link to="/admin">admin</Link>
+                {/* <Link to="/admin">admin</Link> */}
               </div>
             </div>
           </div>

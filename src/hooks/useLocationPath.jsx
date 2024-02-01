@@ -3,9 +3,19 @@ import { useLocation } from "react-router-dom";
 
 export default function useLocationPath() {
   const location = useLocation();
-  const [path, setPath] = useState([location.pathname]);
+  const [path, setPath] = useState([
+    { pathname: location.pathname, timestamp: new Date().toLocaleTimeString() },
+  ]);
+
   useEffect(() => {
-    setPath((prev) => [...prev, location.pathname]);
+    setPath((prev) => [
+      ...prev,
+      {
+        pathname: location.pathname,
+        timestamp: new Date().toLocaleTimeString(),
+      },
+    ]);
   }, [location]);
+
   return path;
 }

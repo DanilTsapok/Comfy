@@ -87,7 +87,8 @@ export default function DownHeader() {
                 <LiaShoppingCartSolid size={26} color="white" />
                 <p style={{ margin: 0 }}>
                   <Link to="/cart" className="cart">
-                    Кошик {cartProducts.length}
+                    Кошик{" "}
+                    {cartProducts.length == 0 ? null : cartProducts.length}
                   </Link>
                 </p>
               </div>

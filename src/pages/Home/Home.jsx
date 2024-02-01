@@ -30,7 +30,7 @@ const Home = () => {
           <Catalog />
           {/* <Card /> */}
 
-          {/* {loading && <Loader />} */}
+          {loading && <Loader />}
         </ProductProvider>
       </ProductProviderTest>
     </>
